@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="오딧세이조합법"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Uparumaking"
+        tools:targetApi="31">
+        <activity
+            android:name=".EmailComposeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SelectUparu3"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SelectUparu2"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SelectUparu"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MainActivity7"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MainActivity6"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MainActivity5"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MainActivity4"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MainActivity3"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

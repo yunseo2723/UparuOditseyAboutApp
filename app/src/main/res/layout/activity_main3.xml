@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background02"
+    tools:context=".MainActivity3">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="150dp"
+        android:queryHint="검색" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="170dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="15dp"
+        android:layout_toEndOf="@+id/searchView" />
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="300dp"
+        android:layout_height="460dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:numColumns="3"
+        android:columnWidth="100dp"
+        />
+
+
+    <ImageButton
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="218dp"
+        android:background="@null"
+        android:scaleType="fitCenter" />
+
+    <ImageButton
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="15dp"
+        android:background="@null"
+        android:scaleType="fitCenter" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeAll"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_alignStart="@+id/gridView"
+        android:layout_marginTop="5dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typeall" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeGrass"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeAll"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typegrass" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeGround"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeGrass"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typeground" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeFire"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeGround"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typefire" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeWater"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeFire"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typewater" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeLightning"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeWater"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typelightning" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeWind"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeLightning"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typewind" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeIce"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeWind"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typeice" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeMagic"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeIce"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typemagic" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeStar"
+        android:layout_width="27.3dp"
+        android:layout_height="27.3dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeMagic"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typestar" />
+
+
+</RelativeLayout>

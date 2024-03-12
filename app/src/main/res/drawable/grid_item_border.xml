@@ -1,0 +1,5 @@
+<!-- res/drawable/grid_item_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/transparent" />  <!-- 배경 색상 (투명) -->
+    <stroke android:color="@android:color/black" android:width="1dp" />  <!-- 테두리 색상과 두께 설정 -->
+</shape>
