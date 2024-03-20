@@ -1548,7 +1548,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egglove)
             goldView.text = "16/분"
             habitatView.text = "천둥, 숲"
-            sellView.text = "245,000"
+            sellView.text = "350,000"
             timeView.text = "10시간30분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -2099,7 +2099,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggingr)
             goldView.text = "4/분"
             habitatView.text = "얼음, 땅"
-            sellView.text = "정보없음"
+            sellView.text = "150,000"
             timeView.text = "6시간"
             val newDataList = arrayListOf(
                 JohapData(
@@ -3910,7 +3910,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggwini)
             goldView.text = "7/분"
             habitatView.text = "바람, 얼음"
-            sellView.text = "정보없음"
+            sellView.text = "420,000"
             timeView.text = "9시간"
             val newDataList = arrayListOf(
                 JohapData(
@@ -4297,7 +4297,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egggnm)
             goldView.text = "10/분"
             habitatView.text = "숲, 매직"
-            sellView.text = "정보없음"
+            sellView.text = "380,000"
             timeView.text = "8시간45분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -4488,7 +4488,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggjelisia)
             goldView.text = "19/분"
             habitatView.text = "매직, 숲"
-            sellView.text = "정보없음"
+            sellView.text = "500,000"
             timeView.text = "10시간15분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -4777,7 +4777,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggcline)
             goldView.text = "12/분"
             habitatView.text = "천둥, 매직"
-            sellView.text = "정보없음"
+            sellView.text = "735,000"
             timeView.text = "11시간15분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -8986,6 +8986,28 @@ class MainActivity4 : AppCompatActivity() {
                 )
             )
             recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
+        else if (changeName == "스파인S") {
+            uparuView.setImageResource(R.drawable.spain22)
+            typeView.setImageResource(R.drawable.typewinl)
+            eggView.setImageResource(R.drawable.eggspain2)
+            goldView.text = "14/분"
+            habitatView.text = "바람, 천둥"
+            sellView.text = "1,350,000"
+            timeView.text = "10시간37분"
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.popup_layout)
+            val popupImage = dialog.findViewById<ImageView>(R.id.popupImage)
+            popupImage.setImageResource(R.drawable.spain22)
+            val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
+            textViewTitle.text = "스파인\n조합조건"
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text = "1. 2024.03.20 ~ 2024.05.01 기간동안만\n소환 가능 \n\n2. 이벤트 뽑기를 통해 알을 획득하여 소환\n\n크로스를 통해서는 획득할 수 없습니다."
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
         }
         else if (changeName == "고디움") {
             uparuView.setImageResource(R.drawable.godium)

@@ -337,6 +337,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.piko2, "피코"),
             Pair(R.drawable.shasha2, "샤샤"),
             Pair(R.drawable.spain, "스파인"),
+            Pair(R.drawable.spain22, "스파인S"),
             Pair(R.drawable.orpeus, "오르페우스"),
             Pair(R.drawable.wonderdragon, "원더드래곤")
         )
@@ -390,6 +391,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.berr2, "베르"),
             Pair(R.drawable.sechimi2, "새치미"),
             Pair(R.drawable.spain, "스파인"),
+            Pair(R.drawable.spain22, "스파인S"),
             Pair(R.drawable.godium, "고디움"),
             Pair(R.drawable.wonderdragon, "원더드래곤")
         )

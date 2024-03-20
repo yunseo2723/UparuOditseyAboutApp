@@ -177,6 +177,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.sechimi2, "새치미", 30, R.drawable.typeinwinf, 27.0),
         Data2(R.drawable.applechick, "애플칙", 14, R.drawable.typegngr, 9.95),
         Data2(R.drawable.spain, "스파인", 14, R.drawable.typewinl, 10.61),
+        Data2(R.drawable.spain22, "스파인S", 14, R.drawable.typewinl, 10.61),
         Data2(R.drawable.godium, "고디움", 15, R.drawable.typefnwi, 10.95),
         Data2(R.drawable.omiyacon, "오미야콘", 16, R.drawable.typeingr, 11.61),
         Data2(R.drawable.orpeus, "오르페우스", 17, R.drawable.typegrnl, 11.95),

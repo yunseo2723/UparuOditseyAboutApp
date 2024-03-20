@@ -182,7 +182,8 @@ class SelectUparu : AppCompatActivity() {
         Data2(R.drawable.popomo, "포포모", 19, R.drawable.typefngnwa, 20.28),
         Data2(R.drawable.mushroom2, "머쉬룸", 14, R.drawable.typegrnf, 10.61),
         Data2(R.drawable.sharkgon2, "샤크곤", 16, R.drawable.typewani, 10.61),
-        Data2(R.drawable.applechick22, "애플칙S", 14, R.drawable.typegngr, 9.95)
+        Data2(R.drawable.applechick22, "애플칙S", 14, R.drawable.typegngr, 9.95),
+        Data2(R.drawable.spain22, "스파인S", 14, R.drawable.typewinl, 10.61),
     )
 
     override fun onBackPressed() {
@@ -892,6 +893,10 @@ class SelectUparu : AppCompatActivity() {
             } else if (selectedItem == "베르") {
                 editor.putInt("changeUparu1", R.drawable.berr2)
                 editor.putString("changeType1", "물,바람,땅")
+                editor.apply()
+            } else if (selectedItem == "스파인S") {
+                editor.putInt("changeUparu1", R.drawable.spain22)
+                editor.putString("changeType1", "바람,천둥")
                 editor.apply()
             }
             startActivity(intent)

@@ -118,6 +118,7 @@ class MainActivity7 : AppCompatActivity() {
         TimeData2(R.drawable.lovelove, "러브럽", R.drawable.egglove,  "천둥,숲", "10시간30분"),
         TimeData2(R.drawable.candylove, "캔디럽", R.drawable.eggcandylove,  "얼음,천둥", "10시간30분"),
         TimeData2(R.drawable.spain, "스파인", R.drawable.eggspain,  "바람,천둥", "10시간37분"),
+        TimeData2(R.drawable.spain22, "스파인", R.drawable.eggspain2,  "바람,천둥", "10시간37분"),
         TimeData2(R.drawable.mushroom2, "머쉬룸", R.drawable.eggmushroom,  "땅,불", "10시간37분"),
         TimeData2(R.drawable.sharkgon2, "샤크곤", R.drawable.eggsharkgon,  "물,얼음", "10시간37분"),
         TimeData2(R.drawable.godium, "고디움", R.drawable.egggodium,  "불,바람", "10시간57분"),
