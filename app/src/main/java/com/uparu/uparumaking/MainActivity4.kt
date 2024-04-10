@@ -991,7 +991,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egganti)
             goldView.text = "5/분"
             habitatView.text = "숲, 땅"
-            sellView.text = "정보없음"
+            sellView.text = "175,000"
             timeView.text = "35분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -1493,7 +1493,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egglove)
             goldView.text = "16/분"
             habitatView.text = "천둥, 숲"
-            sellView.text = "정보없음"
+            sellView.text = "245,000"
             timeView.text = "10시간30분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -2130,7 +2130,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egggrni)
             goldView.text = "4/분"
             habitatView.text = "땅, 얼음"
-            sellView.text = "정보없음"
+            sellView.text = "150,000"
             timeView.text = "6시간"
             val newDataList = arrayListOf(
                 JohapData(
@@ -2653,6 +2653,38 @@ class MainActivity4 : AppCompatActivity() {
                     R.drawable.plus,
                     "프링",
                     R.drawable.pring
+                )
+            )
+            recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
+
+        else if (changeName == "래리") {
+            uparuView.setImageResource(R.drawable.rari)
+            typeView.setImageResource(R.drawable.typewangr)
+            eggView.setImageResource(R.drawable.eggrari)
+            goldView.text = "10/분"
+            habitatView.text = "물, 땅"
+            sellView.text = "360,000"
+            timeView.text = "8시간"
+            val newDataList = arrayListOf(
+                JohapData(
+                    R.drawable.dupa,
+                    "듀파",
+                    R.drawable.plus,
+                    "두더루",
+                    R.drawable.dudeoru
+                ),JohapData(
+                    R.drawable.pupu,
+                    "푸푸",
+                    R.drawable.plus,
+                    "뭉구루",
+                    R.drawable.munguru
+                ),JohapData(
+                    R.drawable.toto,
+                    "토토",
+                    R.drawable.plus,
+                    "무무",
+                    R.drawable.mumu
                 )
             )
             recyclerView.adapter = CustomAdapterJohap(this, newDataList)
@@ -4414,7 +4446,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egggrnm)
             goldView.text = "10/분"
             habitatView.text = "땅, 매직"
-            sellView.text = "정보없음"
+            sellView.text = "400,000"
             timeView.text = "9시간"
             val newDataList = arrayListOf(
                 JohapData(
@@ -4457,7 +4489,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggmng)
             goldView.text = "10/분"
             habitatView.text = "매직, 숲"
-            sellView.text = "정보없음"
+            sellView.text = "490,000"
             timeView.text = "9시간30분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -4691,7 +4723,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggmnwa)
             goldView.text = "11/분"
             habitatView.text = "매직, 물"
-            sellView.text = "정보없음"
+            sellView.text = "696,500"
             timeView.text = "11시간45분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -4857,6 +4889,49 @@ class MainActivity4 : AppCompatActivity() {
             )
             recyclerView.adapter = CustomAdapterJohap(this, newDataList)
         }
+        else if (changeName == "밍쿠") {
+            uparuView.setImageResource(R.drawable.mingku)
+            typeView.setImageResource(R.drawable.typemnl)
+            eggView.setImageResource(R.drawable.eggdrapet)
+            goldView.text = "13/분"
+            habitatView.text = "매직, 천둥"
+            sellView.text = "735,000"
+            timeView.text = "11시간30분"
+            val newDataList = arrayListOf(
+                JohapData(
+                    R.drawable.ururu,
+                    "우루루",
+                    R.drawable.plus,
+                    "젤로",
+                    R.drawable.jello
+                ),JohapData(
+                    R.drawable.jello,
+                    "젤로",
+                    R.drawable.plus,
+                    "용용",
+                    R.drawable.yongyong
+                ),JohapData(
+                    R.drawable.jello,
+                    "젤로",
+                    R.drawable.plus,
+                    "메메",
+                    R.drawable.meme
+                ),JohapData(
+                    R.drawable.jello,
+                    "젤로",
+                    R.drawable.plus,
+                    "몽키루",
+                    R.drawable.mongkiru
+                ),JohapData(
+                    R.drawable.jello,
+                    "젤로",
+                    R.drawable.plus,
+                    "페페",
+                    R.drawable.pepe
+                )
+            )
+            recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
         else if (changeName == "로디") {
             uparuView.setImageResource(R.drawable.rodi)
             typeView.setImageResource(R.drawable.typemnwi)
@@ -4906,7 +4981,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggwinm)
             goldView.text = "12/분"
             habitatView.text = "바람, 매직"
-            sellView.text = "정보없음"
+            sellView.text = "600,000"
             timeView.text = "12시간15분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -5788,7 +5863,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggfnm)
             goldView.text = "17/분"
             habitatView.text = "불, 매직"
-            sellView.text = "정보없음"
+            sellView.text = "1,350,000"
             timeView.text = "13시간"
             val newDataList = arrayListOf(
                 JohapData(
@@ -6094,7 +6169,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.eggdumpti)
             goldView.text = "17/분"
             habitatView.text = "매직, 불"
-            sellView.text = "정보없음"
+            sellView.text = "1,127,000"
             timeView.text = "16시간"
             val newDataList = arrayListOf(
                 JohapData(
@@ -8316,6 +8391,51 @@ class MainActivity4 : AppCompatActivity() {
             )
             recyclerView.adapter = CustomAdapterJohap(this, newDataList)
         }
+        else if (changeName == "러빗") {
+            uparuView.setImageResource(R.drawable.loveit2)
+            typeView.setImageResource(R.drawable.typemninl)
+            eggView.setImageResource(R.drawable.eggloveit)
+            goldView.text = "20/분"
+            habitatView.text = "매직, 얼음, 천둥"
+            sellView.text = "1,850,000"
+            timeView.text = "28시간"
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.popup_layout)
+            val popupImage = dialog.findViewById<ImageView>(R.id.popupImage)
+            popupImage.setImageResource(R.drawable.loveit2)
+            val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
+            textViewTitle.text = "러빗\n조합조건"
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text = "1. 크로스에 캔디럽 포함 \n\n2. 2024.03.27 ~ 2024.04.10 기간동안만\n소환 가능"
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss() // 팝업 닫기
+            }
+            dialog.show() // 팝업 다이얼로그 표시
+
+            val newDataList = arrayListOf(
+                JohapData(
+                    R.drawable.candylove,
+                    "캔디럽",
+                    R.drawable.plus,
+                    "젤로",
+                    R.drawable.jello
+                ),JohapData(
+                    R.drawable.candylove,
+                    "캔디럽",
+                    R.drawable.plus,
+                    "아르키",
+                    R.drawable.arki
+                ),JohapData(
+                    R.drawable.candylove,
+                    "캔디럽",
+                    R.drawable.plus,
+                    "푸스",
+                    R.drawable.pus
+                )
+            )
+            recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
         else if (changeName == "골디") {
             uparuView.setImageResource(R.drawable.goldi)
             typeView.setImageResource(R.drawable.typegold)
@@ -9396,6 +9516,28 @@ class MainActivity4 : AppCompatActivity() {
             val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
             textViewTitle.text = "새치미\n조합법"
             val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text = "프리미엄 뽑기 전용 우파루입니다.\n\n2024.04.03 이후 획득 불가"
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss() // 팝업 닫기
+            }
+            dialog.show()
+        }
+        else if (changeName == "렘렘") {
+            uparuView.setImageResource(R.drawable.remrem2)
+            typeView.setImageResource(R.drawable.typewaninm)
+            eggView.setImageResource(R.drawable.eggremrem)
+            goldView.text = "30/분"
+            habitatView.text = "물, 얼음, 매직"
+            sellView.text = "2,000,000"
+            timeView.text = "27시간"
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.popup_layout)
+            val popupImage = dialog.findViewById<ImageView>(R.id.popupImage)
+            popupImage.setImageResource(R.drawable.remrem2)
+            val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
+            textViewTitle.text = "렘렘\n조합법"
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
             textViewContent.text = "프리미엄 뽑기 전용 우파루입니다.\n\n프리미엄 뽑기를 통해 알을 획득하여 소환하세요.\n\n크로스를 통해서는 획득할 수 없습니다."
             val closeButton = dialog.findViewById<Button>(R.id.closeButton)
             closeButton.setOnClickListener {
@@ -9964,6 +10106,30 @@ class MainActivity4 : AppCompatActivity() {
             textViewContent.text =
                 "1. 2023.11.16 ~ 2023.11.30 기간동안만\n소환 가능 \n\n2. 아래 3번 혹은 4번 방법으로만 획득 가능\n\n" +
                         "3. 프리미엄 뽑기를 통해 알을 획득하여 소환\n\n4. 원정 이벤트 스테이지 <빛의 방문자>\n클리어시 획득 가능\n\n크로스를 통해서는 획득할 수 없습니다."
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss() // 팝업 닫기
+            }
+            dialog.show() // 팝업 다이얼로그 표시
+        }
+        else if (changeName == "스텔라") {
+            uparuView.setImageResource(R.drawable.stella2)
+            typeView.setImageResource(R.drawable.typelight)
+            eggView.setImageResource(R.drawable.eggstella)
+            goldView.text = "55/분"
+            habitatView.text = "빛"
+            sellView.text = "정보없음"
+            timeView.text = "48시간"
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.popup_layout)
+            val popupImage = dialog.findViewById<ImageView>(R.id.popupImage)
+            popupImage.setImageResource(R.drawable.stella2)
+            val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
+            textViewTitle.text = "스텔라\n조합법"
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text =
+                "1. 2024.04.10 ~ 2024.06.19 기간동안은\n차원상점에서 구매 가능 \n\n2. 차원 크로스를 통해서 상시 획득 가능\n\n" +
+                        "일반 크로스를 통해서는 획득할 수 없습니다."
             val closeButton = dialog.findViewById<Button>(R.id.closeButton)
             closeButton.setOnClickListener {
                 dialog.dismiss() // 팝업 닫기

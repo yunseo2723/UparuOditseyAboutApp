@@ -24,6 +24,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.cupi2, "큐피", 28, R.drawable.typemnwinf, 26.0),
         Data2(R.drawable.rambert2, "램버트", 25, R.drawable.typewinwang, 28.0),
         Data2(R.drawable.berr2, "베르", 26, R.drawable.typewanwingr, 28.5),
+        Data2(R.drawable.loveit2, "러빗", 20, R.drawable.typemninl, 28.0),
         Data2(R.drawable.pori, "포리", 10, R.drawable.typegrass, 0.01),
         Data2(R.drawable.dudeoru, "두더루", 4, R.drawable.typeground, 0.05),
         Data2(R.drawable.bbururu, "뿌루루", 6, R.drawable.typefire, 0.25),
@@ -80,6 +81,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.baretsa, "바렛사", 8, R.drawable.typefngr, 9.75),
         Data2(R.drawable.tamami, "타마미", 6, R.drawable.typeinl, 5.0),
         Data2(R.drawable.danbi, "단비", 8, R.drawable.typegrnf, 9.75),
+        Data2(R.drawable.rari, "래리", 10, R.drawable.typewangr, 8.0),
         Data2(R.drawable.buffru, "버프루", 8, R.drawable.typegrnwa, 9.0),
         Data2(R.drawable.copyru, "카피루", 8, R.drawable.typewangr, 9.0),
         Data2(R.drawable.tutu, "투투", 8, R.drawable.typewing, 8.0),
@@ -132,6 +134,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.dolpi, "돌피", 11, R.drawable.typewanm, 11.75),
         Data2(R.drawable.cline, "클리네", 12, R.drawable.typelnm, 11.25),
         Data2(R.drawable.humpti, "험프티", 12, R.drawable.typemnl, 11.25),
+        Data2(R.drawable.mingku, "밍쿠", 13, R.drawable.typemnl, 11.5),
         Data2(R.drawable.rodi, "로디", 12, R.drawable.typemnwi, 12.25),
         Data2(R.drawable.pandi, "팬디", 12, R.drawable.typewinm, 12.25),
         Data2(R.drawable.tingklru, "팅클루", 12, R.drawable.typemnwi, 12.25),
@@ -175,6 +178,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.piko2, "피코", 30, R.drawable.typewangnl, 27.0),
         Data2(R.drawable.shasha2, "샤샤", 30, R.drawable.typegrninl, 27.0),
         Data2(R.drawable.sechimi2, "새치미", 30, R.drawable.typeinwinf, 27.0),
+        Data2(R.drawable.remrem2, "렘렘", 30, R.drawable.typewaninm, 27.0),
         Data2(R.drawable.applechick, "애플칙", 14, R.drawable.typegngr, 9.95),
         Data2(R.drawable.spain, "스파인", 14, R.drawable.typewinl, 10.61),
         Data2(R.drawable.spain22, "스파인S", 14, R.drawable.typewinl, 10.61),
@@ -187,6 +191,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.godaesinyong, "고대신룡", 53, R.drawable.typelight, 35.95),
         Data2(R.drawable.darknicks, "다크닉스", 53, R.drawable.typedark, 35.95),
         Data2(R.drawable.godaesinyong22, "고대신룡S", 53, R.drawable.typelight, 35.95),
+        Data2(R.drawable.stella2, "스텔라", 55, R.drawable.typelight, 48.0),
         Data2(R.drawable.mushroom2, "머쉬룸", 14, R.drawable.typegrnf, 10.61),
         Data2(R.drawable.sharkgon2, "샤크곤", 16, R.drawable.typewani, 10.61),
         Data2(R.drawable.applechick22, "애플칙S", 16, R.drawable.typegngr, 9.95)
@@ -343,7 +348,8 @@ class MainActivity3 : AppCompatActivity() {
                         it.type == R.drawable.typewinwa || it.type == R.drawable.typewinwani ||
                         it.type == R.drawable.typewanwinl || it.type == R.drawable.typefngnwa ||
                         it.type == R.drawable.typewinwang || it.type == R.drawable.typewanm ||
-                        it.type == R.drawable.typemnwa || it.type == R.drawable.typewanwingr
+                        it.type == R.drawable.typemnwa || it.type == R.drawable.typewanwingr ||
+                        it.type == R.drawable.typewaninm
             }
 
             // 새로운 어댑터로 그리드뷰 업데이트
@@ -365,7 +371,8 @@ class MainActivity3 : AppCompatActivity() {
                         it.type == R.drawable.typewaninl || it.type == R.drawable.typewinl ||
                         it.type == R.drawable.typelnfni || it.type == R.drawable.typegrninl ||
                         it.type == R.drawable.typewanwinl || it.type == R.drawable.typegrnlng ||
-                        it.type == R.drawable.typelnm || it.type == R.drawable.typemnl
+                        it.type == R.drawable.typelnm || it.type == R.drawable.typemnl ||
+                        it.type == R.drawable.typemninl
             }
 
             // 새로운 어댑터로 그리드뷰 업데이트
@@ -413,7 +420,8 @@ class MainActivity3 : AppCompatActivity() {
                         it.type == R.drawable.typewinwani || it.type == R.drawable.typelnfni ||
                         it.type == R.drawable.typegrninl || it.type == R.drawable.typeingnwi ||
                         it.type == R.drawable.typeinwinf || it.type == R.drawable.typemni ||
-                        it.type == R.drawable.typeinm
+                        it.type == R.drawable.typeinm || it.type == R.drawable.typemninl ||
+                        it.type == R.drawable.typewaninm
             }
 
             // 새로운 어댑터로 그리드뷰 업데이트
@@ -431,7 +439,8 @@ class MainActivity3 : AppCompatActivity() {
                         it.type == R.drawable.typemnf || it.type == R.drawable.typefnm ||
                         it.type == R.drawable.typewinm || it.type == R.drawable.typelnm ||
                         it.type == R.drawable.typemngr || it.type == R.drawable.typemnwa ||
-                        it.type == R.drawable.typeinm || it.type == R.drawable.typemni
+                        it.type == R.drawable.typeinm || it.type == R.drawable.typemni ||
+                        it.type == R.drawable.typemninl || it.type == R.drawable.typewaninm
             }
 
             // 새로운 어댑터로 그리드뷰 업데이트

@@ -27,6 +27,7 @@ class SelectUparu : AppCompatActivity() {
         Data2(R.drawable.cupi2, "큐피", 28, R.drawable.typemnwinf, 26.0),
         Data2(R.drawable.rambert2, "램버트", 25, R.drawable.typewinwang, 28.0),
         Data2(R.drawable.berr2, "베르", 26, R.drawable.typewanwingr, 28.5),
+        Data2(R.drawable.loveit2, "러빗", 20, R.drawable.typemninl, 28.0),
         Data2(R.drawable.pori, "포리", 10, R.drawable.typegrass, 0.01),
         Data2(R.drawable.dudeoru, "두더루", 4, R.drawable.typeground, 0.05),
         Data2(R.drawable.bbururu, "뿌루루", 6, R.drawable.typefire, 0.25),
@@ -83,6 +84,7 @@ class SelectUparu : AppCompatActivity() {
         Data2(R.drawable.baretsa, "바렛사", 8, R.drawable.typefngr, 9.75),
         Data2(R.drawable.tamami, "타마미", 6, R.drawable.typeinl, 5.0),
         Data2(R.drawable.danbi, "단비", 8, R.drawable.typegrnf, 9.75),
+        Data2(R.drawable.rari, "래리", 10, R.drawable.typewangr, 8.0),
         Data2(R.drawable.buffru, "버프루", 8, R.drawable.typegrnwa, 9.0),
         Data2(R.drawable.copyru, "카피루", 8, R.drawable.typewangr, 9.0),
         Data2(R.drawable.tutu, "투투", 8, R.drawable.typewing, 8.0),
@@ -135,6 +137,7 @@ class SelectUparu : AppCompatActivity() {
         Data2(R.drawable.dolpi, "돌피", 11, R.drawable.typewanm, 11.75),
         Data2(R.drawable.cline, "클리네", 12, R.drawable.typelnm, 11.25),
         Data2(R.drawable.humpti, "험프티", 12, R.drawable.typemnl, 11.25),
+        Data2(R.drawable.mingku, "밍쿠", 13, R.drawable.typemnl, 11.5),
         Data2(R.drawable.rodi, "로디", 12, R.drawable.typemnwi, 12.25),
         Data2(R.drawable.pandi, "팬디", 12, R.drawable.typewinm, 12.25),
         Data2(R.drawable.tingklru, "팅클루", 12, R.drawable.typemnwi, 12.25),
@@ -172,6 +175,7 @@ class SelectUparu : AppCompatActivity() {
         Data2(R.drawable.piko2, "피코", 30, R.drawable.typewangnl, 27.0),
         Data2(R.drawable.shasha2, "샤샤", 30, R.drawable.typegrninl, 27.0),
         Data2(R.drawable.sechimi2, "새치미", 30, R.drawable.typeinwinf, 27.0),
+        Data2(R.drawable.remrem2, "렘렘", 30, R.drawable.typewaninm, 27.0),
         Data2(R.drawable.applechick, "애플칙", 14, R.drawable.typegngr, 9.95),
         Data2(R.drawable.spain, "스파인", 14, R.drawable.typewinl, 10.61),
         Data2(R.drawable.godium, "고디움", 15, R.drawable.typefnwi, 10.95),
@@ -897,6 +901,22 @@ class SelectUparu : AppCompatActivity() {
             } else if (selectedItem == "스파인S") {
                 editor.putInt("changeUparu1", R.drawable.spain22)
                 editor.putString("changeType1", "바람,천둥")
+                editor.apply()
+            } else if (selectedItem == "러빗") {
+                editor.putInt("changeUparu1", R.drawable.loveit2)
+                editor.putString("changeType1", "매직,얼음,천둥")
+                editor.apply()
+            } else if (selectedItem == "래리") {
+                editor.putInt("changeUparu1", R.drawable.rari)
+                editor.putString("changeType1", "물,땅")
+                editor.apply()
+            } else if (selectedItem == "렘렘") {
+                editor.putInt("changeUparu1", R.drawable.remrem2)
+                editor.putString("changeType1", "물,얼음,매직")
+                editor.apply()
+            } else if (selectedItem == "밍쿠") {
+                editor.putInt("changeUparu1", R.drawable.mingku)
+                editor.putString("changeType1", "매직,천둥")
                 editor.apply()
             }
             startActivity(intent)

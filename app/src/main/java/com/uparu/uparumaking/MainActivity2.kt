@@ -77,7 +77,8 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.krono, "크로노"),
             Pair(R.drawable.godaesinyong, "고대신룡"),
             Pair(R.drawable.darknicks, "다크닉스"),
-            Pair(R.drawable.godaesinyong22, "고대신룡S")
+            Pair(R.drawable.godaesinyong22, "고대신룡S"),
+            Pair(R.drawable.stella2, "스텔라")
         )
         showCustomDialog(dialogItems)
     }
@@ -156,6 +157,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.scoti, "스코티"),
             Pair(R.drawable.baretsa, "바렛사"),
             Pair(R.drawable.danbi, "단비"),
+            Pair(R.drawable.rari, "래리"),
             Pair(R.drawable.buffru, "버프루"),
             Pair(R.drawable.copyru, "카피루"),
             Pair(R.drawable.chomchom, "촘촘"),
@@ -253,6 +255,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.betsi, "벳시"),
             Pair(R.drawable.koku, "코쿠"),
             Pair(R.drawable.hipopo, "히포포"),
+            Pair(R.drawable.rari, "래리"),
             Pair(R.drawable.buffru, "버프루"),
             Pair(R.drawable.copyru, "카피루"),
             Pair(R.drawable.tod, "토드"),
@@ -278,6 +281,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.sufferyong2, "서퍼용"),
             Pair(R.drawable.rambert2, "램버트"),
             Pair(R.drawable.berr2, "베르"),
+            Pair(R.drawable.remrem2, "렘렘"),
             Pair(R.drawable.piko2, "피코"),
             Pair(R.drawable.wonderdragon, "원더드래곤"),
             Pair(R.drawable.yurion, "유리온"),
@@ -322,6 +326,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.pus, "푸스"),
             Pair(R.drawable.cline, "클리네"),
             Pair(R.drawable.humpti, "험프티"),
+            Pair(R.drawable.mingku, "밍쿠"),
             Pair(R.drawable.drapet, "드라펫"),
             Pair(R.drawable.caterfly, "캐터플라이"),
             Pair(R.drawable.dodo, "도도"),
@@ -334,6 +339,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.sparumong2, "스파루몽"),
             Pair(R.drawable.sufferyong2, "서퍼용"),
             Pair(R.drawable.jurayong2, "쥬라용"),
+            Pair(R.drawable.loveit2, "러빗"),
             Pair(R.drawable.piko2, "피코"),
             Pair(R.drawable.shasha2, "샤샤"),
             Pair(R.drawable.spain, "스파인"),
@@ -442,6 +448,8 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.candylove2, "캔디럽"),
             Pair(R.drawable.skulru2, "스컬루"),
             Pair(R.drawable.sparumong2, "스파루몽"),
+            Pair(R.drawable.loveit2, "러빗"),
+            Pair(R.drawable.remrem2, "렘렘"),
             Pair(R.drawable.shasha2, "샤샤"),
             Pair(R.drawable.sechimi2, "새치미"),
             Pair(R.drawable.omiyacon, "오미야콘"),
@@ -467,6 +475,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.dolpi, "돌피"),
             Pair(R.drawable.cline, "클리네"),
             Pair(R.drawable.humpti, "험프티"),
+            Pair(R.drawable.mingku, "밍쿠"),
             Pair(R.drawable.rodi, "로디"),
             Pair(R.drawable.pandi, "팬디"),
             Pair(R.drawable.tingklru, "팅클루"),
@@ -478,7 +487,9 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.alpha, "알파"),
             Pair(R.drawable.toibo, "토이보"),
             Pair(R.drawable.dumpti, "덤프티"),
-            Pair(R.drawable.cupi2, "큐피")
+            Pair(R.drawable.cupi2, "큐피"),
+            Pair(R.drawable.loveit2, "러빗"),
+            Pair(R.drawable.remrem2, "렘렘")
         )
         showCustomDialog(dialogItems)
     }

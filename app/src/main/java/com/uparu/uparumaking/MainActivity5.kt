@@ -74,6 +74,7 @@ class MainActivity5 : AppCompatActivity() {
         TimeData(R.drawable.crapi, "크래피", R.drawable.egggnwi, "소환시간 :", "8시간"),
         TimeData(R.drawable.tutu, "투투", R.drawable.eggwing, "소환시간 :", "8시간"),
         TimeData(R.drawable.ggobu, "꼬부", R.drawable.eggwing, "소환시간 :", "8시간"),
+        TimeData(R.drawable.rari, "래리", R.drawable.eggrari, "소환시간 :", "8시간"),
         TimeData(R.drawable.bobo, "보보", R.drawable.eggwinwa, "소환시간 :", "8시간15분"),
         TimeData(R.drawable.pumki2, "펌키", R.drawable.eggpumki, "소환시간 :", "8시간30분"),
         TimeData(R.drawable.giroro, "기로로", R.drawable.eggwinl, "소환시간 :", "8시간30분"),
@@ -125,6 +126,7 @@ class MainActivity5 : AppCompatActivity() {
         TimeData(R.drawable.pus, "푸스", R.drawable.egglnm, "소환시간 :", "11시간15분"),
         TimeData(R.drawable.cline, "클리네", R.drawable.eggcline, "소환시간 :", "11시간15분"),
         TimeData(R.drawable.humpti, "험프티", R.drawable.egghumpti, "소환시간 :", "11시간15분"),
+        TimeData(R.drawable.mingku, "밍쿠", R.drawable.eggdrapet, "소환시간 :", "11시간30분"),
         TimeData(R.drawable.omiyacon, "오미야콘", R.drawable.eggomiyacon, "소환시간 :", "11시간37분"),
         TimeData(R.drawable.yurion, "유리온", R.drawable.eggyurion, "소환시간 :", "11시간37분"),
         TimeData(R.drawable.marina, "마리나", R.drawable.eggwani, "소환시간 :", "11시간45분"),
@@ -178,7 +180,9 @@ class MainActivity5 : AppCompatActivity() {
         TimeData(R.drawable.piko2, "피코", R.drawable.eggpiko, "소환시간 :", "27시간"),
         TimeData(R.drawable.shasha2, "샤샤", R.drawable.eggshasha, "소환시간 :", "27시간"),
         TimeData(R.drawable.sechimi2, "새치미", R.drawable.eggsechimi, "소환시간 :", "27시간"),
+        TimeData(R.drawable.remrem2, "렘렘", R.drawable.eggremrem, "소환시간 :", "27시간"),
         TimeData(R.drawable.rambert2, "램버트", R.drawable.eggrambert, "소환시간 :", "28시간"),
+        TimeData(R.drawable.loveit2, "러빗", R.drawable.eggloveit, "소환시간 :", "28시간"),
         TimeData(R.drawable.berr2, "베르", R.drawable.eggberr, "소환시간 :", "28시간30분"),
         TimeData(R.drawable.sparumong2, "스파루몽", R.drawable.eggsparumong, "소환시간 :", "28시간45분"),
         TimeData(R.drawable.godaesinyong, "고대신룡", R.drawable.egggodaesinyong, "소환시간 :", "35시간57분"),
@@ -189,7 +193,8 @@ class MainActivity5 : AppCompatActivity() {
         TimeData(R.drawable.rupin, "루핀", R.drawable.eggrupin, "소환시간 :", "40시간"),
         TimeData(R.drawable.krono, "크로노", R.drawable.eggkrono, "소환시간 :", "42시간"),
         TimeData(R.drawable.goldi, "골디", R.drawable.egggoldi, "소환시간 :", "48시간"),
-        TimeData(R.drawable.darkgoldi, "다크골디", R.drawable.egggoldi, "소환시간 :", "48시간")
+        TimeData(R.drawable.darkgoldi, "다크골디", R.drawable.egggoldi, "소환시간 :", "48시간"),
+        TimeData(R.drawable.stella2, "스텔라", R.drawable.eggstella, "소환시간 :", "48시간")
     )
     override fun onBackPressed() {
         super.onBackPressed();
