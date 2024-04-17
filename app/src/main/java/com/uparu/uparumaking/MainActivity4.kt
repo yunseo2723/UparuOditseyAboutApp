@@ -2050,6 +2050,55 @@ class MainActivity4 : AppCompatActivity() {
             )
             recyclerView.adapter = CustomAdapterJohap(this, newDataList)
         }
+        else if (changeName == "오구구") {
+            uparuView.setImageResource(R.drawable.ogugu)
+            typeView.setImageResource(R.drawable.typeingr)
+            eggView.setImageResource(R.drawable.eggogugu)
+            goldView.text = "5/분"
+            habitatView.text = "얼음, 땅"
+            sellView.text = "정보없음"
+            timeView.text = "5시간45분"
+            val newDataList = arrayListOf(
+                JohapData(
+                    R.drawable.chichi,
+                    "치치",
+                    R.drawable.plus,
+                    "두무라이",
+                    R.drawable.dumurai
+                ),JohapData(
+                    R.drawable.chichi,
+                    "치치",
+                    R.drawable.plus,
+                    "두더루",
+                    R.drawable.dudeoru
+                ),JohapData(
+                    R.drawable.beti,
+                    "베티",
+                    R.drawable.plus,
+                    "또루루",
+                    R.drawable.ddoruru
+                ),JohapData(
+                    R.drawable.chupa,
+                    "츄파",
+                    R.drawable.plus,
+                    "두더루",
+                    R.drawable.dudeoru
+                ),JohapData(
+                    R.drawable.merry,
+                    "메리",
+                    R.drawable.plus,
+                    "로사",
+                    R.drawable.rosa
+                ),JohapData(
+                    R.drawable.chupa,
+                    "츄파",
+                    R.drawable.plus,
+                    "또루루",
+                    R.drawable.ddoruru
+                )
+            )
+            recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
         else if (changeName == "엘리") {
             uparuView.setImageResource(R.drawable.eli)
             typeView.setImageResource(R.drawable.typewangr)
@@ -4680,7 +4729,7 @@ class MainActivity4 : AppCompatActivity() {
             eggView.setImageResource(R.drawable.egglnm)
             goldView.text = "12/분"
             habitatView.text = "천둥, 매직"
-            sellView.text = "정보없음"
+            sellView.text = "735,000"
             timeView.text = "11시간15분"
             val newDataList = arrayListOf(
                 JohapData(
@@ -8927,6 +8976,144 @@ class MainActivity4 : AppCompatActivity() {
                     R.drawable.plus,
                     "크랑",
                     R.drawable.krang
+                )
+            )
+            recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
+        else if (changeName == "블랙아피스") {
+            uparuView.setImageResource(R.drawable.blackapis2)
+            typeView.setImageResource(R.drawable.typedark)
+            eggView.setImageResource(R.drawable.eggblackapis)
+            goldView.text = "80/분"
+            habitatView.text = "어둠"
+            sellView.text = "정보없음"
+            timeView.text = "47시간"
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.popup_layout)
+            val popupImage = dialog.findViewById<ImageView>(R.id.popupImage)
+            popupImage.setImageResource(R.drawable.blackapis2)
+            val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
+            textViewTitle.text = "블랙아피스\n조합조건"
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text = "1. 땅, 천둥 속성을 포함한 5가지 속성 이상 크로스\n\n2. 2024.04.13 ~ 2024.04.15 기간동안만 소환 가능"
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss() // 팝업 닫기
+            }
+            dialog.show() // 팝업 다이얼로그 표시
+
+            val newDataList = arrayListOf(
+                JohapData(
+                    R.drawable.caterfly,
+                    "캐터플라이",
+                    R.drawable.plus,
+                    "보라도루",
+                    R.drawable.boradoru
+                ),JohapData(
+                    R.drawable.rosa,
+                    "로사",
+                    R.drawable.plus,
+                    "버터핀",
+                    R.drawable.butterfin
+                ),JohapData(
+                    R.drawable.skulru,
+                    "스컬루",
+                    R.drawable.plus,
+                    "래리",
+                    R.drawable.rari
+                ),JohapData(
+                    R.drawable.caterfly,
+                    "캐터플라이",
+                    R.drawable.plus,
+                    "치치",
+                    R.drawable.chichi
+                ),JohapData(
+                    R.drawable.dodo,
+                    "도도",
+                    R.drawable.plus,
+                    "오미야콘",
+                    R.drawable.omiyacon
+                ),JohapData(
+                    R.drawable.spain,
+                    "스파인",
+                    R.drawable.plus,
+                    "레스코",
+                    R.drawable.resco
+                ),JohapData(
+                    R.drawable.shasha,
+                    "샤샤",
+                    R.drawable.plus,
+                    "토드",
+                    R.drawable.tod
+                ),JohapData(
+                    R.drawable.sparumong,
+                    "스파루몽",
+                    R.drawable.plus,
+                    "보라도루",
+                    R.drawable.boradoru
+                ),JohapData(
+                    R.drawable.sufferyong,
+                    "서퍼용",
+                    R.drawable.plus,
+                    "메리",
+                    R.drawable.merry
+                )
+            )
+            recyclerView.adapter = CustomAdapterJohap(this, newDataList)
+        }
+        else if (changeName == "루미온") {
+            uparuView.setImageResource(R.drawable.rumion2)
+            typeView.setImageResource(R.drawable.typelight)
+            eggView.setImageResource(R.drawable.eggrumion)
+            goldView.text = "42/분"
+            habitatView.text = "빛"
+            sellView.text = "정보없음"
+            timeView.text = "40시간"
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.popup_layout)
+            val popupImage = dialog.findViewById<ImageView>(R.id.popupImage)
+            popupImage.setImageResource(R.drawable.rumion2)
+            val textViewTitle = dialog.findViewById<TextView>(R.id.popupTitle)
+            textViewTitle.text = "루미온\n조합조건"
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text = "1. 숲, 땅 속성을 포함한 4가지 속성 이상 크로스\n\n2. 2024.04.17 ~ 2024.05.01 기간동안 접속 시 소환석 지급\n\n3. 2024.04.17 ~ 2024.05.15 기간동안 크로스 소환 가능"
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss() // 팝업 닫기
+            }
+            dialog.show() // 팝업 다이얼로그 표시
+
+            val newDataList = arrayListOf(
+                JohapData(
+                    R.drawable.dorong,
+                    "도롱",
+                    R.drawable.plus,
+                    "단비",
+                    R.drawable.danbi
+                ),JohapData(
+                    R.drawable.mumu,
+                    "무무",
+                    R.drawable.plus,
+                    "찡요",
+                    R.drawable.jjingyo
+                ),JohapData(
+                    R.drawable.crapi,
+                    "크래피",
+                    R.drawable.plus,
+                    "치치",
+                    R.drawable.chichi
+                ),JohapData(
+                    R.drawable.koka,
+                    "코카",
+                    R.drawable.plus,
+                    "해롱",
+                    R.drawable.haerong
+                ),JohapData(
+                    R.drawable.purni,
+                    "푸르니",
+                    R.drawable.plus,
+                    "우루루",
+                    R.drawable.ururu
                 )
             )
             recyclerView.adapter = CustomAdapterJohap(this, newDataList)

@@ -68,6 +68,7 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.jjingyo, "찡요", 8, R.drawable.typewang, 6.0),
         Data2(R.drawable.ulami, "울라미", 5, R.drawable.typeingr, 5.25),
         Data2(R.drawable.ulfo, "울포", 7, R.drawable.typefnl, 6.5),
+        Data2(R.drawable.ogugu, "오구구", 5, R.drawable.typeingr, 5.75),
         Data2(R.drawable.eli, "엘리", 8, R.drawable.typewangr, 7.0),
         Data2(R.drawable.chichi, "치치", 4, R.drawable.typeingr, 6.0),
         Data2(R.drawable.dori, "도리", 4, R.drawable.typegrni, 6.0),
@@ -192,6 +193,8 @@ class MainActivity3 : AppCompatActivity() {
         Data2(R.drawable.darknicks, "다크닉스", 53, R.drawable.typedark, 35.95),
         Data2(R.drawable.godaesinyong22, "고대신룡S", 53, R.drawable.typelight, 35.95),
         Data2(R.drawable.stella2, "스텔라", 55, R.drawable.typelight, 48.0),
+        Data2(R.drawable.blackapis2, "블랙아피스", 80, R.drawable.typedark, 47.0),
+        Data2(R.drawable.rumion2, "루미온", 42, R.drawable.typelight, 40.0),
         Data2(R.drawable.mushroom2, "머쉬룸", 14, R.drawable.typegrnf, 10.61),
         Data2(R.drawable.sharkgon2, "샤크곤", 16, R.drawable.typewani, 10.61),
         Data2(R.drawable.applechick22, "애플칙S", 16, R.drawable.typegngr, 9.95)

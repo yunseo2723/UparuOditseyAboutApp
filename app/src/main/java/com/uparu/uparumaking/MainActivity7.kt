@@ -54,6 +54,7 @@ class MainActivity7 : AppCompatActivity() {
         TimeData2(R.drawable.tamami, "타마미", R.drawable.eggtamami,  "얼음,천둥", "5시간15분"),
         TimeData2(R.drawable.ulami, "울라미", R.drawable.eggingr,  "얼음,땅", "5시간15분"),
         TimeData2(R.drawable.yongaru, "용가루", R.drawable.eggwi,  "바람", "5시간30분"),
+        TimeData2(R.drawable.ogugu, "오구구", R.drawable.eggogugu,  "얼음,땅", "5시간45분"),
         TimeData2(R.drawable.yongyong, "용용", R.drawable.egggrnl,  "땅,천둥", "6시간"),
         TimeData2(R.drawable.butterfin, "버터핀", R.drawable.egggrnl,  "땅,천둥", "6시간"),
         TimeData2(R.drawable.dori, "도리", R.drawable.egggrni,  "땅,얼음", "6시간"),
@@ -194,7 +195,9 @@ class MainActivity7 : AppCompatActivity() {
         TimeData2(R.drawable.rey, "레이", R.drawable.eggrey,  "빛", "36시간"),
         TimeData2(R.drawable.shadow, "쉐도우", R.drawable.eggshadow,  "어둠", "36시간"),
         TimeData2(R.drawable.rupin, "루핀", R.drawable.eggrupin,  "빛", "40시간"),
+        TimeData2(R.drawable.rumion2, "루미온", R.drawable.eggrumion,  "빛", "40시간"),
         TimeData2(R.drawable.krono, "크로노", R.drawable.eggkrono,  "어둠", "42시간"),
+        TimeData2(R.drawable.blackapis2, "블랙아피스", R.drawable.eggblackapis,  "어둠", "47시간"),
         TimeData2(R.drawable.goldi, "골디", R.drawable.egggoldi,  "황금", "48시간"),
         TimeData2(R.drawable.darkgoldi, "다크골디", R.drawable.egggoldi,  "황금", "48시간"),
         TimeData2(R.drawable.stella2, "스텔라", R.drawable.eggstella,  "빛", "48시간")

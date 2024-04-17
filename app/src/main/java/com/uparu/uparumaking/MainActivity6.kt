@@ -54,6 +54,7 @@ class MainActivity6 : AppCompatActivity() {
         TimeData2(R.drawable.tamami, "타마미", R.drawable.eggtamami,  "얼음,천둥", "5시간15분"),
         TimeData2(R.drawable.ulami, "울라미", R.drawable.eggingr,  "얼음,땅", "5시간15분"),
         TimeData2(R.drawable.yongaru, "용가루", R.drawable.eggwi,  "바람", "5시간30분"),
+        TimeData2(R.drawable.ogugu, "오구구", R.drawable.eggogugu,  "얼음,땅", "5시간45분"),
         TimeData2(R.drawable.yongyong, "용용", R.drawable.egggrnl,  "땅,천둥", "6시간"),
         TimeData2(R.drawable.butterfin, "버터핀", R.drawable.egggrnl,  "땅,천둥", "6시간"),
         TimeData2(R.drawable.dori, "도리", R.drawable.egggrni,  "땅,얼음", "6시간"),
@@ -185,7 +186,9 @@ class MainActivity6 : AppCompatActivity() {
         TimeData2(R.drawable.rey, "레이", R.drawable.eggrey,  "빛", "36시간"),
         TimeData2(R.drawable.shadow, "쉐도우", R.drawable.eggshadow,  "어둠", "36시간"),
         TimeData2(R.drawable.rupin, "루핀", R.drawable.eggrupin,  "빛", "40시간"),
+        TimeData2(R.drawable.rumion2, "루미온", R.drawable.eggrumion,  "빛", "40시간"),
         TimeData2(R.drawable.krono, "크로노", R.drawable.eggkrono, "어둠", "42시간"),
+        TimeData2(R.drawable.blackapis2, "블랙아피스", R.drawable.eggblackapis, "어둠", "47시간"),
         TimeData2(R.drawable.goldi, "골디", R.drawable.egggoldi,  "황금", "48시간"),
         TimeData2(R.drawable.darkgoldi, "다크골디", R.drawable.egggoldi,  "황금", "48시간")
     )
@@ -337,12 +340,16 @@ class MainActivity6 : AppCompatActivity() {
                 val resulttype = generateCombinations(changeType1+changeType2)
                 val typenum = (changeType1+","+changeType2).split(",").distinct().size
                 val arrayRare = arrayOf("yuni", "bongbong", "penriru", "foxy", "chepy", "bau", "boradoru", "cray", "hermi", "rudol", "kota2", "alpha", "toibo", "dumpti")
+                val isGrassContained = resulttype.contains("숲")
+                val isGroundContained = resulttype.contains("땅")
                 val isFireContained = resulttype.contains("불")
                 val isWaterContained = resulttype.contains("물")
                 val isWindContained = resulttype.contains("바람")
                 val isIceContained = resulttype.contains("얼음")
                 val isLightningContained = resulttype.contains("천둥")
-                val isRare1 = arrayRare.contains(Uparu1) || arrayRare.contains(Uparu2)// 레어 1 이상 확인
+                val isMagicContained = resulttype.contains("매직")
+                val isRare0 = !arrayRare.contains(Uparu1) && !arrayRare.contains(Uparu2)// 레어 없음 확인
+                val isRare1 = (arrayRare.contains(Uparu1) && !arrayRare.contains(Uparu2)) || (!arrayRare.contains(Uparu1) && arrayRare.contains(Uparu2))// 레어 1 이상 확인
                 val isRare2 = arrayRare.contains(Uparu1) && arrayRare.contains(Uparu2)// 레어 2 이상 확인
 
                 val impossibleset0 = (Uparu1 == Uparu2 && typenum == 3)
@@ -355,6 +362,7 @@ class MainActivity6 : AppCompatActivity() {
                 val impossibleset5 = Uparu1 == "randomegg" || Uparu2 == "randomegg"
                 val caselovelove = (Uparu1 == "chocolove"&& Uparu2 == "cocolove") || (Uparu1 == "cocolove"&& Uparu2 == "chocolove")
                 val caserey = !isRare1 && typenum >= 4 && (isWaterContained || isWindContained)
+                val caseblackapis = typenum >= 5 && isGroundContained && isLightningContained
                 val casegoldi = isRare1 && typenum >= 4
                 val casedarkgoldi = isRare2 && typenum >= 2
                 val casegodaesinyong = typenum >= 5
@@ -372,41 +380,71 @@ class MainActivity6 : AppCompatActivity() {
                     impossibleset0 -> {
                         nameresult==null
                     }
-                    caselovelove -> {
-                        nameresult == R.drawable.lovelove
-                    }
-                    notmakingloveit -> {
-                        nameresult!=R.drawable.loveit2 && resulttype.contains(result)
-                    }
-                    //레어 2마리 이상, 속성 5개 이상 (루핀, 골디, 다크골디, 크로노, 고대신룡, 다크닉스)
-                    casedarkgoldi && casegodaesinyong -> {
+                    //레어 없이, 속성 4개(물or바람, 숲, 땅 포함) (레이, 쉐도우, 루미온)
+                    isRare0 && typenum == 4 && (isWindContained || isWaterContained) && isGrassContained && isGroundContained -> {
                         if (makingyongaru)
                             // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
-                            nameresult == R.drawable.rupin || nameresult == R.drawable.goldi || nameresult == R.drawable.darkgoldi || nameresult == R.drawable.krono || nameresult == R.drawable.godaesinyong || nameresult == R.drawable.darknicks || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                            nameresult == R.drawable.rey || nameresult == R.drawable.shadow || nameresult == R.drawable.rumion2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
                          else
                             // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
-                            nameresult == R.drawable.rupin || nameresult == R.drawable.goldi || nameresult == R.drawable.darkgoldi || nameresult == R.drawable.krono || nameresult == R.drawable.godaesinyong || nameresult == R.drawable.darknicks || resulttype.contains(result)
+                            nameresult == R.drawable.rey || nameresult == R.drawable.shadow || nameresult == R.drawable.rumion2 || resulttype.contains(result)
                     }
-                    //레어 1마리 이상, 속성 5개 이상 (루핀, 골디, 크로노, 고대신룡, 다크닉스)
-                    casegoldi && casegodaesinyong -> {
+                    //레어 없이, 속성 4개(숲, 땅 포함) (루미온)
+                    isRare0 && typenum == 4 && isGrassContained && isGroundContained -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
-                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                            nameresult==R.drawable.rumion2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
                         else
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
-                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result)
+                            nameresult==R.drawable.rumion2 || resulttype.contains(result)
                     }
-                    //레어 2마리, 속성 4개 이상 (루핀, 골디, 다크골디)
-                    casegoldi && casedarkgoldi -> {
+                    //레어 없이, 속성 4개(물or바람 포함) (레이, 쉐도우)
+                    isRare0 && typenum == 4 && (isWindContained || isWaterContained) -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
-                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.darkgoldi || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || resulttype.contains(result) || nameresult==R.drawable.yongaru
                         else
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
-                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.darkgoldi || resulttype.contains(result)
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || resulttype.contains(result)
                     }
-                    // 조건 4: 속성이 5개 이상이고 물과 바람중 하나를 포함하는 경우 (레이, 쉐도우, 크로노, 고대신룡, 다크닉스)
-                    casegodaesinyong && caserey -> {
+                    //레어 없이, 속성 5개 이상(물or바람, 숲, 땅, 천둥 포함) (레이, 쉐도우, 크로노, 고대신룡, 다크닉스, 블랙아피스, 루미온)
+                    isRare0 && typenum >= 5 && (isWindContained || isWaterContained) && isGrassContained && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || nameresult==R.drawable.rumion2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || nameresult==R.drawable.rumion2 || resulttype.contains(result)
+                    }
+                    //레어 없이, 속성 5개 이상(물or바람, 숲, 땅 포함) (레이, 쉐도우, 크로노, 고대신룡, 다크닉스, 루미온)
+                    isRare0 && typenum >= 5 && (isWindContained || isWaterContained) && isGrassContained && isGroundContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || resulttype.contains(result)
+                    }
+                    //레어 없이, 속성 5개 이상(물or바람, 땅, 천둥 포함) (레이, 쉐도우, 크로노, 고대신룡, 다크닉스, 블랙아피스)
+                    isRare0 && typenum >= 5 && (isWindContained || isWaterContained) && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result)
+                    }
+                    //레어 없이, 속성 5개 이상(숲, 땅, 천둥 포함) (루미온, 크로노, 고대신룡, 다크닉스, 블랙아피스)
+                    isRare0 && typenum >= 5 && isGrassContained && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rumion2 || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rumion2 || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result)
+                    }
+                    //레어 없이, 속성 5개 이상(물or바람 포함) (레이, 쉐도우, 크로노, 고대신룡, 다크닉스)
+                    isRare0 && typenum >= 5 && (isWindContained || isWaterContained) -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
                             nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result) || nameresult==R.drawable.yongaru
@@ -414,8 +452,26 @@ class MainActivity6 : AppCompatActivity() {
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
                             nameresult==R.drawable.rey || nameresult==R.drawable.shadow || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result)
                     }
-                    // 조건 4: 속성이 5개 이상인 경우 (크로노, 고대신룡, 다크닉스)
-                    casegodaesinyong -> {
+                    //레어 없이, 속성 5개 이상(땅, 천둥 포함) (크로노, 고대신룡, 다크닉스, 블랙아피스)
+                    isRare0 && typenum >= 5 && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result)
+                    }
+                    //레어 없이, 속성 5개 이상(숲, 땅 포함) (크로노, 고대신룡, 다크닉스, 루미온)
+                    isRare0 && typenum >= 5 && isGrassContained && isGroundContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || resulttype.contains(result)
+                    }
+                    //레어 없이, 속성 5개 이상(물, 바람, 숲, 땅, 천둥 없이) (크로노, 고대신룡, 다크닉스)
+                    isRare0 && typenum >= 5 -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
                             nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result) || nameresult==R.drawable.yongaru
@@ -423,32 +479,128 @@ class MainActivity6 : AppCompatActivity() {
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
                             nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result)
                     }
-                    //레어 2마리, 속성 2개 이상 (다크골디)
-                    casedarkgoldi -> {
+                    //레어 1개, 속성 4개(숲, 땅 포함) (루핀, 골디, 루미온)
+                    isRare1 && typenum == 4 && isGrassContained && isGroundContained -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
-                            nameresult==R.drawable.darkgoldi || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.rumion2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
                         else
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
-                            nameresult==R.drawable.darkgoldi || resulttype.contains(result)
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.rumion2  || resulttype.contains(result)
                     }
-                    //레어 1마리 이상, 속성 4개 이상 (루핀, 골디)
-                    casegoldi -> {
+                    //레어 1개, 속성 4개(숲, 땅 없이) (루핀, 골디)
+                    isRare1 && typenum == 4 && (!isGrassContained || !isGroundContained) -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
-                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi  || resulttype.contains(result) || nameresult==R.drawable.yongaru
                         else
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
-                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || resulttype.contains(result)
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi  || resulttype.contains(result)
                     }
-                    //레어를 넣지 않고 속성이 4개 이상이고 물과 바람중 하나를 포함하는 경우 (레이, 쉐도우)
-                    caserey -> {
+                    //레어 1개, 속성 5개 이상(숲, 땅, 천둥 포함) (루핀, 골디, 크로노, 고대신룡, 다크닉스, 루미온, 블랙아피스)
+                    isRare1 && typenum >= 5 && isGrassContained && isGroundContained && isLightningContained -> {
                         if (makingyongaru)
                         // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
-                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || nameresult==R.drawable.blackapis2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
                         else
                         // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
-                            nameresult==R.drawable.rey || nameresult==R.drawable.shadow  || resulttype.contains(result)
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || nameresult==R.drawable.blackapis2  || resulttype.contains(result)
+                    }
+                    //레어 1개, 속성 5개 이상(숲, 땅 포함) (루핀, 골디, 크로노, 고대신룡, 다크닉스, 루미온)
+                    isRare1 && typenum >= 5 && isGrassContained && isGroundContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2  || resulttype.contains(result)
+                    }
+                    //레어 1개, 속성 5개 이상(땅, 천둥 포함) (루핀, 골디, 크로노, 고대신룡, 다크닉스, 블랙아피스)
+                    isRare1 && typenum >= 5 && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2  || resulttype.contains(result)
+                    }
+                    //레어 1개, 속성 5개 이상(숲, 땅, 천둥 없이) (루핀, 골디, 크로노, 고대신룡, 다크닉스)
+                    isRare1 && typenum >= 5 -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 2, 3개 (다크골디)
+                    isRare2 && (typenum == 2 || typenum == 3) -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi  || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 4개(숲, 땅 포함) (다크골디, 루핀, 골디, 루미온)
+                    isRare2 && typenum == 4 && isGrassContained && isGroundContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.rumion2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.rumion2  || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 4개(숲, 땅 없이) (다크골디, 루핀, 골디)
+                    isRare2 && typenum == 4 && (!isGrassContained || !isGroundContained) -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi  || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 5개 이상(숲, 땅, 천둥 포함) (다크골디, 루핀, 골디, 크로노, 고대신룡, 다크닉스, 루미온, 블랙아피스)
+                    isRare2 && typenum >= 5 && isGrassContained && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || nameresult==R.drawable.blackapis2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || nameresult==R.drawable.blackapis2  || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 5개 이상(숲, 땅 포함) (다크골디, 루핀, 골디, 크로노, 고대신룡, 다크닉스, 루미온)
+                    isRare2 && typenum >= 5 && isGrassContained && isGroundContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.rumion2 || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 5개 이상(땅, 천둥 포함) (다크골디, 루핀, 골디, 크로노, 고대신룡, 다크닉스, 블랙아피스)
+                    isRare2 && typenum >= 5 && isGroundContained && isLightningContained -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2  || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || nameresult==R.drawable.blackapis2 || resulttype.contains(result)
+                    }
+                    //레어 2개, 속성 5개 이상(숲, 땅, 천둥 없이) (다크골디, 루핀, 골디, 크로노, 고대신룡, 다크닉스)
+                    isRare2 && typenum >= 5 -> {
+                        if (makingyongaru)
+                        // makingyongaru도 만족하면 양쪽의 로직을 모두 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result) || nameresult==R.drawable.yongaru
+                        else
+                        // makingyongaru가 만족하지 않으면 caserey의 로직만 실행
+                            nameresult==R.drawable.darkgoldi || nameresult==R.drawable.rupin || nameresult==R.drawable.goldi || nameresult==R.drawable.krono || nameresult==R.drawable.godaesinyong || nameresult==R.drawable.darknicks || resulttype.contains(result)
+                    }
+                    caselovelove -> {
+                        nameresult == R.drawable.lovelove
+                    }
+                    notmakingloveit -> {
+                        nameresult!=R.drawable.loveit2 && resulttype.contains(result)
                     }
                     //용가루 조합법
                     makingyongaru -> {

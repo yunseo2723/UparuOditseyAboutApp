@@ -63,6 +63,7 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.jjingyo, "찡요", 8, R.drawable.typewang, 6.0),
         Data2(R.drawable.ulami, "울라미", 5, R.drawable.typeingr, 5.25),
         Data2(R.drawable.ulfo, "울포", 7, R.drawable.typefnl, 6.5),
+        Data2(R.drawable.ogugu, "오구구", 5, R.drawable.typeingr, 5.75),
         Data2(R.drawable.eli, "엘리", 8, R.drawable.typewangr, 7.0),
         Data2(R.drawable.chichi, "치치", 4, R.drawable.typeingr, 6.0),
         Data2(R.drawable.dori, "도리", 4, R.drawable.typegrni, 6.0),
@@ -190,6 +191,8 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.applechick22, "애플칙S", 14, R.drawable.typegngr, 9.95),
         Data2(R.drawable.spain22, "스파인S", 14, R.drawable.typewinl, 10.61),
         Data2(R.drawable.stella2, "스텔라", 55, R.drawable.typelight, 48.0),
+        Data2(R.drawable.blackapis2, "블랙아피스", 80, R.drawable.typedark, 47.0),
+        Data2(R.drawable.rumion2, "루미온", 42, R.drawable.typelight, 40.0)
     )
 
     override fun onBackPressed() {
@@ -957,6 +960,18 @@ class SelectUparu3 : AppCompatActivity() {
                 editor.apply()
             } else if (selectedItem == "스텔라") {
                 editor.putInt("changeUparu2", R.drawable.stella2)
+                editor.putString("changeType2", "빛")
+                editor.apply()
+            } else if (selectedItem == "블랙아피스") {
+                editor.putInt("changeUparu2", R.drawable.blackapis2)
+                editor.putString("changeType2", "어둠")
+                editor.apply()
+            } else if (selectedItem == "오구구") {
+                editor.putInt("changeUparu2", R.drawable.ogugu)
+                editor.putString("changeType2", "얼음,땅")
+                editor.apply()
+            } else if (selectedItem == "루미온") {
+                editor.putInt("changeUparu2", R.drawable.rumion2)
                 editor.putString("changeType2", "빛")
                 editor.apply()
             }

@@ -71,6 +71,7 @@ class SelectUparu : AppCompatActivity() {
         Data2(R.drawable.jjingyo, "찡요", 8, R.drawable.typewang, 6.0),
         Data2(R.drawable.ulami, "울라미", 5, R.drawable.typeingr, 5.25),
         Data2(R.drawable.ulfo, "울포", 7, R.drawable.typefnl, 6.5),
+        Data2(R.drawable.ogugu, "오구구", 5, R.drawable.typeingr, 5.75),
         Data2(R.drawable.eli, "엘리", 8, R.drawable.typewangr, 7.0),
         Data2(R.drawable.chichi, "치치", 4, R.drawable.typeingr, 6.0),
         Data2(R.drawable.dori, "도리", 4, R.drawable.typegrni, 6.0),
@@ -917,6 +918,10 @@ class SelectUparu : AppCompatActivity() {
             } else if (selectedItem == "밍쿠") {
                 editor.putInt("changeUparu1", R.drawable.mingku)
                 editor.putString("changeType1", "매직,천둥")
+                editor.apply()
+            } else if (selectedItem == "오구구") {
+                editor.putInt("changeUparu1", R.drawable.ogugu)
+                editor.putString("changeType1", "얼음,땅")
                 editor.apply()
             }
             startActivity(intent)
