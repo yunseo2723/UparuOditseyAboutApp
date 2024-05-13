@@ -14,8 +14,8 @@ android {
         applicationId = "com.uparu.uparumaking"
         minSdk = 24
         targetSdk = 33
-        versionCode = 33
-        versionName = "2.3.12"
+        versionCode = 35
+        versionName = "2.3.14"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

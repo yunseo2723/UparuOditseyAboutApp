@@ -20,6 +20,7 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.rambert2, "램버트", 25, R.drawable.typewinwang, 28.0),
         Data2(R.drawable.berr2, "베르", 26, R.drawable.typewanwingr, 28.5),
         Data2(R.drawable.loveit2, "러빗", 20, R.drawable.typemninl, 28.0),
+        Data2(R.drawable.myti2, "마이티", 19, R.drawable.typeinfnm, 29.25),
         Data2(R.drawable.pori, "포리", 10, R.drawable.typegrass, 0.01),
         Data2(R.drawable.dudeoru, "두더루", 4, R.drawable.typeground, 0.05),
         Data2(R.drawable.bbururu, "뿌루루", 6, R.drawable.typefire, 0.25),
@@ -59,6 +60,7 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.bibi, "비비", 8, R.drawable.typefnwa, 5.0),
         Data2(R.drawable.bingo, "빙고", 4, R.drawable.typeingr, 4.75),
         Data2(R.drawable.butterfin, "버터핀", 5, R.drawable.typegrnl, 6.0),
+        Data2(R.drawable.banaduck, "바나덕", 9, R.drawable.typegnl, 6.0),
         Data2(R.drawable.uparupa, "우파루파", 7, R.drawable.typegrnwa, 7.0),
         Data2(R.drawable.jjingyo, "찡요", 8, R.drawable.typewang, 6.0),
         Data2(R.drawable.ulami, "울라미", 5, R.drawable.typeingr, 5.25),
@@ -101,14 +103,16 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.gururu, "구루루", 8, R.drawable.typewinl, 8.5),
         Data2(R.drawable.wow, "와우", 7, R.drawable.typeinwi, 7.0),
         Data2(R.drawable.uli, "울리", 7, R.drawable.typeinwi, 7.0),
-        Data2(R.drawable.kitz, "키츠", 10, R.drawable.typelnwi, 8.66),
+        Data2(R.drawable.kitz, "키츠", 7, R.drawable.typelnwi, 8.66),
         Data2(R.drawable.doli, "돌리", 7, R.drawable.typeinwi, 7.5),
         Data2(R.drawable.raku, "라쿠", 9, R.drawable.typelnwi, 8.75),
         Data2(R.drawable.nyao, "냐오", 9, R.drawable.typelnwi, 8.75),
+        Data2(R.drawable.ggulsori, "꿀소리", 7, R.drawable.typewini, 7.75),
         Data2(R.drawable.koka, "코카", 9, R.drawable.typelngr, 10.0),
         Data2(R.drawable.tigo, "티고", 7, R.drawable.typeinwi, 9.0),
         Data2(R.drawable.dudu, "두두", 7, R.drawable.typewini, 9.0),
         Data2(R.drawable.miyo, "미요", 7, R.drawable.typeinwi, 9.0),
+        Data2(R.drawable.tenerpeng, "테너펭", 13, R.drawable.typeinwa, 11.25),
         Data2(R.drawable.polaru, "폴라루", 14, R.drawable.typeinwa, 11.75),
         Data2(R.drawable.marina, "마리나", 11, R.drawable.typewani, 11.75),
         Data2(R.drawable.pogisa, "포기사", 15, R.drawable.typegnf, 10.25),
@@ -131,20 +135,29 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.cline, "클리네", 12, R.drawable.typelnm, 11.25),
         Data2(R.drawable.humpti, "험프티", 12, R.drawable.typemnl, 11.25),
         Data2(R.drawable.mingku, "밍쿠", 13, R.drawable.typemnl, 11.5),
+        Data2(R.drawable.ducki, "덕키", 12, R.drawable.typemnwi, 11.75),
         Data2(R.drawable.rodi, "로디", 12, R.drawable.typemnwi, 12.25),
         Data2(R.drawable.pandi, "팬디", 12, R.drawable.typewinm, 12.25),
         Data2(R.drawable.tingklru, "팅클루", 12, R.drawable.typemnwi, 12.25),
         Data2(R.drawable.penpen, "펜펜", 13, R.drawable.typemni, 12.75),
         Data2(R.drawable.softi, "소프티", 13, R.drawable.typeinm, 12.75),
         Data2(R.drawable.arki, "아르키", 13, R.drawable.typeinm, 12.75),
+        Data2(R.drawable.photobi, "포토비", 13, R.drawable.typelnm, 14.5),
         Data2(R.drawable.dujangun, "듀장군", 16, R.drawable.typewanm, 10.25),
         Data2(R.drawable.purni, "푸르니", 17, R.drawable.typegnwangr, 20.25),
         Data2(R.drawable.drapet, "드라펫", 14, R.drawable.typemnl, 17.5),
         Data2(R.drawable.resco, "레스코", 18, R.drawable.typegrnfnwa, 23.25),
         Data2(R.drawable.caterfly, "캐터플라이", 17, R.drawable.typefnlng, 23.5),
+        Data2(R.drawable.beild, "베일드", 18, R.drawable.typegrnwang, 24.5),
         Data2(R.drawable.chekiru, "체키루", 18, R.drawable.typegrninwa, 23.25),
+        Data2(R.drawable.helsingpo, "헬싱포", 18, R.drawable.typefngrnwa, 26.25),
+        Data2(R.drawable.kickpig, "킥피그", 17, R.drawable.typefngnl, 25.75),
         Data2(R.drawable.dodo, "도도", 19, R.drawable.typefnlnwi, 23.5),
+        Data2(R.drawable.ebinu, "에비누", 16, R.drawable.typeinf, 11.25),
         Data2(R.drawable.shellru, "쉘루", 18, R.drawable.typewinwani, 24.5),
+        Data2(R.drawable.mungchi, "뭉치", 19, R.drawable.typegrnmnl, 20.5),
+        Data2(R.drawable.ukong, "우콩", 19, R.drawable.typegnmnl, 20.5),
+        Data2(R.drawable.trumcat, "트럼캣", 19, R.drawable.typefnwinl, 26.33),
         Data2(R.drawable.penriru, "펜리루", 15, R.drawable.typefni, 14.0),
         Data2(R.drawable.foxy, "폭시", 16, R.drawable.typeinf, 14.0),
         Data2(R.drawable.chepy, "채피", 16, R.drawable.typeinf, 14.0),
@@ -163,8 +176,13 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.alroha, "알로하", 18, R.drawable.typewaning, 22.25),
         Data2(R.drawable.totoru, "토토루", 18, R.drawable.typeingrnwi, 21.0),
         Data2(R.drawable.rosa, "로사", 18, R.drawable.typewining, 22.5),
+        Data2(R.drawable.yunipin, "유니핀", 29, R.drawable.typeinwanwi, 24.25),
+        Data2(R.drawable.chaupa, "차우파", 30, R.drawable.typegrnlnwa, 25.5),
+        Data2(R.drawable.chao, "챠오", 23, R.drawable.typegnfni, 24.5),
+        Data2(R.drawable.pisingki, "피싱키", 21, R.drawable.typegninwi, 22.5),
         Data2(R.drawable.tider, "티더", 19, R.drawable.typeingnwi, 22.5),
         Data2(R.drawable.whyki, "와이키", 18, R.drawable.typewaninl, 22.75),
+        Data2(R.drawable.boder, "보더", 19, R.drawable.typegnmnf, 25.0),
         Data2(R.drawable.rey, "레이", 35, R.drawable.typelight, 36.0),
         Data2(R.drawable.shadow, "쉐도우", 35, R.drawable.typedark, 36.0),
         Data2(R.drawable.rupin, "루핀", 42, R.drawable.typelight, 40.0),
@@ -177,22 +195,28 @@ class SelectUparu3 : AppCompatActivity() {
         Data2(R.drawable.remrem2, "렘렘", 30, R.drawable.typewaninm, 27.0),
         Data2(R.drawable.applechick, "애플칙", 14, R.drawable.typegngr, 9.95),
         Data2(R.drawable.spain, "스파인", 14, R.drawable.typewinl, 10.61),
+        Data2(R.drawable.spain22, "스파인S", 14, R.drawable.typewinl, 10.61),
         Data2(R.drawable.godium, "고디움", 15, R.drawable.typefnwi, 10.95),
         Data2(R.drawable.omiyacon, "오미야콘", 16, R.drawable.typeingr, 11.61),
         Data2(R.drawable.orpeus, "오르페우스", 17, R.drawable.typegrnl, 11.95),
         Data2(R.drawable.wonderdragon, "원더드래곤", 19, R.drawable.typelnwinwa, 20.28),
         Data2(R.drawable.yurion, "유리온", 15, R.drawable.typewani, 11.61),
         Data2(R.drawable.popomo, "포포모", 19, R.drawable.typefngnwa, 20.28),
+        Data2(R.drawable.capri, "카프리", 32, R.drawable.typemnwing, 27.5),
+        Data2(R.drawable.april, "에이프릴", 31, R.drawable.typegrnwini, 21.0),
+        Data2(R.drawable.piki, "피키", 19, R.drawable.typemngnl, 20.5),
+        Data2(R.drawable.reor, "레오르", 26, R.drawable.typegrnlnf, 27.25),
+        Data2(R.drawable.minidragon, "미니드래곤", 14, R.drawable.typegnwi, 11.61),
         Data2(R.drawable.godaesinyong, "고대신룡", 53, R.drawable.typelight, 35.95),
         Data2(R.drawable.darknicks, "다크닉스", 53, R.drawable.typedark, 35.95),
         Data2(R.drawable.godaesinyong22, "고대신룡S", 53, R.drawable.typelight, 35.95),
-        Data2(R.drawable.mushroom2, "머쉬룸", 14, R.drawable.typegrnf, 10.61),
-        Data2(R.drawable.sharkgon2, "샤크곤", 16, R.drawable.typewani, 10.61),
-        Data2(R.drawable.applechick22, "애플칙S", 14, R.drawable.typegngr, 9.95),
-        Data2(R.drawable.spain22, "스파인S", 14, R.drawable.typewinl, 10.61),
         Data2(R.drawable.stella2, "스텔라", 55, R.drawable.typelight, 48.0),
         Data2(R.drawable.blackapis2, "블랙아피스", 80, R.drawable.typedark, 47.0),
-        Data2(R.drawable.rumion2, "루미온", 42, R.drawable.typelight, 40.0)
+        Data2(R.drawable.rumion2, "루미온", 42, R.drawable.typelight, 40.0),
+        Data2(R.drawable.mushroom2, "머쉬룸", 14, R.drawable.typegrnf, 10.61),
+        Data2(R.drawable.sharkgon2, "샤크곤", 16, R.drawable.typewani, 10.61),
+        Data2(R.drawable.applechick22, "애플칙S", 16, R.drawable.typegngr, 9.95),
+        Data2(R.drawable.pangpang2, "팡팡", 19, R.drawable.typewinmng, 20.28)
     )
 
     override fun onBackPressed() {
@@ -973,6 +997,102 @@ class SelectUparu3 : AppCompatActivity() {
             } else if (selectedItem == "루미온") {
                 editor.putInt("changeUparu2", R.drawable.rumion2)
                 editor.putString("changeType2", "빛")
+                editor.apply()
+            } else if (selectedItem == "마이티") {
+                editor.putInt("changeUparu2", R.drawable.myti2)
+                editor.putString("changeType2", "얼음,불,매직")
+                editor.apply()
+            } else if (selectedItem == "팡팡") {
+                editor.putInt("changeUparu2", R.drawable.pangpang2)
+                editor.putString("changeType2", "바람,매직,숲")
+                editor.apply()
+            } else if (selectedItem == "카프리") {
+                editor.putInt("changeUparu2", R.drawable.capri)
+                editor.putString("changeType2", "매직,바람,숲")
+                editor.apply()
+            } else if (selectedItem == "에이프릴") {
+                editor.putInt("changeUparu2", R.drawable.april)
+                editor.putString("changeType2", "땅,바람,얼음")
+                editor.apply()
+            } else if (selectedItem == "피키") {
+                editor.putInt("changeUparu2", R.drawable.piki)
+                editor.putString("changeType2", "매직,숲,천둥")
+                editor.apply()
+            } else if (selectedItem == "레오르") {
+                editor.putInt("changeUparu2", R.drawable.reor)
+                editor.putString("changeType2", "땅,천둥,불")
+                editor.apply()
+            } else if (selectedItem == "미니드래곤") {
+                editor.putInt("changeUparu2", R.drawable.minidragon)
+                editor.putString("changeType2", "숲,바람")
+                editor.apply()
+            } else if (selectedItem == "트럼캣") {
+                editor.putInt("changeUparu2", R.drawable.trumcat)
+                editor.putString("changeType2", "불,바람,천둥")
+                editor.apply()
+            } else if (selectedItem == "바나덕") {
+                editor.putInt("changeUparu2", R.drawable.banaduck)
+                editor.putString("changeType2", "숲,천둥")
+                editor.apply()
+            } else if (selectedItem == "포토비") {
+                editor.putInt("changeUparu2", R.drawable.photobi)
+                editor.putString("changeType2", "천둥,매직")
+                editor.apply()
+            } else if (selectedItem == "덕키") {
+                editor.putInt("changeUparu2", R.drawable.ducki)
+                editor.putString("changeType2", "매직,바람")
+                editor.apply()
+            } else if (selectedItem == "꿀소리") {
+                editor.putInt("changeUparu2", R.drawable.ggulsori)
+                editor.putString("changeType2", "바람,얼음")
+                editor.apply()
+            } else if (selectedItem == "테너펭") {
+                editor.putInt("changeUparu2", R.drawable.tenerpeng)
+                editor.putString("changeType2", "얼음,물")
+                editor.apply()
+            } else if (selectedItem == "뭉치") {
+                editor.putInt("changeUparu2", R.drawable.mungchi)
+                editor.putString("changeType2", "땅,매직,천둥")
+                editor.apply()
+            } else if (selectedItem == "베일드") {
+                editor.putInt("changeUparu2", R.drawable.beild)
+                editor.putString("changeType2", "땅,물,숲")
+                editor.apply()
+            } else if (selectedItem == "헬싱포") {
+                editor.putInt("changeUparu2", R.drawable.helsingpo)
+                editor.putString("changeType2", "불,땅,물")
+                editor.apply()
+            } else if (selectedItem == "유니핀") {
+                editor.putInt("changeUparu2", R.drawable.yunipin)
+                editor.putString("changeType2", "얼음,물,바람")
+                editor.apply()
+            } else if (selectedItem == "차우파") {
+                editor.putInt("changeUparu2", R.drawable.chaupa)
+                editor.putString("changeType2", "땅,천둥,물")
+                editor.apply()
+            } else if (selectedItem == "챠오") {
+                editor.putInt("changeUparu2", R.drawable.chao)
+                editor.putString("changeType2", "숲,불,얼음")
+                editor.apply()
+            } else if (selectedItem == "킥피그") {
+                editor.putInt("changeUparu2", R.drawable.kickpig)
+                editor.putString("changeType2", "불,숲,천둥")
+                editor.apply()
+            } else if (selectedItem == "피싱키") {
+                editor.putInt("changeUparu2", R.drawable.pisingki)
+                editor.putString("changeType2", "숲,얼음,바람")
+                editor.apply()
+            } else if (selectedItem == "우콩") {
+                editor.putInt("changeUparu2", R.drawable.ukong)
+                editor.putString("changeType2", "숲,매직,천둥")
+                editor.apply()
+            } else if (selectedItem == "보더") {
+                editor.putInt("changeUparu2", R.drawable.boder)
+                editor.putString("changeType2", "숲,매직,불")
+                editor.apply()
+            } else if (selectedItem == "에비누") {
+                editor.putInt("changeUparu2", R.drawable.ebinu)
+                editor.putString("changeType2", "얼음,불")
                 editor.apply()
             }
             startActivity(intent)
