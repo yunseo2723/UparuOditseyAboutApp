@@ -19,12 +19,15 @@ class CustomAdapter2(val context: Context, var DataList: List<Data2>) : BaseAdap
     override fun getItemId(position: Int) = 0L
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view:View = LayoutInflater.from(context).inflate(R.layout.custom_list2, null)
+        val view = convertView ?: LayoutInflater.from(context)
+            .inflate(R.layout.custom_list2, parent, false)
+
         val profile = view.findViewById<ImageView>(R.id.iv_custom)
         val name = view.findViewById<TextView>(R.id.tv_custom)
         val gold = view.findViewById<TextView>(R.id.gold_custom)
         val type = view.findViewById<ImageView>(R.id.type_custom)
         val time = view.findViewById<TextView>(R.id.time_custom)
+
         val data = DataList[position]
 
         profile.setImageResource(data.profile)
@@ -32,14 +35,13 @@ class CustomAdapter2(val context: Context, var DataList: List<Data2>) : BaseAdap
         gold.text = data.gold.toString()
         type.setImageResource(data.type)
         time.text = data.time.toString()
+
         return view
-
-
     }
 
     // 데이터 목록 업데이트 메서드
     fun updateDataList(newDataList: List<Data2>) {
-        DataList = newDataList as ArrayList<Data2>
+        DataList = newDataList
         notifyDataSetChanged()
     }
 }

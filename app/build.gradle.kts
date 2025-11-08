@@ -14,8 +14,8 @@ android {
         applicationId = "com.uparu.uparumaking"
         minSdk = 24
         targetSdk = 33
-        versionCode = 35
-        versionName = "2.3.14"
+        versionCode = 36
+        versionName = "2.3.15"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,6 +35,15 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildToolsVersion = "35.0.0"
+    ndkVersion = "25.1.8937393"
+    buildFeatures {
+        viewBinding = true
+    }
+    dependenciesInfo {
+        includeInApk = true
+        includeInBundle = true
     }
 }
 

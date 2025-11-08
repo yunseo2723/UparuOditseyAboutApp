@@ -63,8 +63,8 @@
 
     <ImageButton
         android:id="@+id/buttonTypeAll"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_alignStart="@+id/gridView"
         android:layout_marginTop="5dp"
@@ -74,111 +74,123 @@
 
     <ImageButton
         android:id="@+id/buttonTypeGrass"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeAll"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typegrass" />
 
     <ImageButton
         android:id="@+id/buttonTypeGround"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeGrass"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typeground" />
 
     <ImageButton
         android:id="@+id/buttonTypeFire"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeGround"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typefire" />
 
     <ImageButton
         android:id="@+id/buttonTypeWater"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeFire"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typewater" />
 
     <ImageButton
         android:id="@+id/buttonTypeLightning"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeWater"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typelightning" />
 
     <ImageButton
         android:id="@+id/buttonTypeWind"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeLightning"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typewind" />
 
     <ImageButton
         android:id="@+id/buttonTypeIce"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeWind"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typeice" />
 
     <ImageButton
         android:id="@+id/buttonTypeMagic"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeIce"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typemagic" />
 
     <ImageButton
         android:id="@+id/buttonTypeStar"
-        android:layout_width="27.3dp"
-        android:layout_height="27.3dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_below="@+id/searchView"
         android:layout_toEndOf="@+id/buttonTypeMagic"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
+        android:layout_marginLeft="2.5dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/typestar" />
+
+    <ImageButton
+        android:id="@+id/buttonTypeCloud"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/searchView"
+        android:layout_toEndOf="@+id/buttonTypeStar"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="2.5dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/typecloud" />
 
 
 </RelativeLayout>

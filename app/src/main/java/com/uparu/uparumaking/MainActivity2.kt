@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity2 : AppCompatActivity() {
     var DataList = arrayListOf(
         Data(R.drawable.star1, "Star"),
+        Data(R.drawable.cloud1, "Cloud"),
         Data(R.drawable.grass1, "Grass"),
         Data(R.drawable.ground1, "Ground"),
         Data(R.drawable.fire1, "Fire"),
@@ -41,6 +42,7 @@ class MainActivity2 : AppCompatActivity() {
             val clickedData = DataList[position]
             when (clickedData.imageResId) {
                 R.drawable.star1 -> showStarDialog()
+                R.drawable.cloud1 -> showCloudDialog()
                 R.drawable.grass1 -> showGrassDialog()
                 R.drawable.ground1 -> showGroundDialog()
                 R.drawable.fire1 -> showFireDialog()
@@ -79,6 +81,14 @@ class MainActivity2 : AppCompatActivity() {
         showCustomDialog(dialogItems)
     }
 
+    private fun showCloudDialog() {
+        val dialogItems = listOf(
+            Pair(R.drawable.clau, "클라우"),
+            Pair(R.drawable.mistic, "미스틱"),
+            Pair(R.drawable.magnus, "매그너스")
+        )
+        showCustomDialog(dialogItems)
+    }
 
     private fun showGrassDialog() {
         val dialogItems = listOf(
@@ -92,6 +102,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.pero, "페로"),
             Pair(R.drawable.beobi, "버비"),
             Pair(R.drawable.anti, "앤티"),
+            Pair(R.drawable.cuaca, "쿠아카"),
             Pair(R.drawable.seed, "시드"),
             Pair(R.drawable.dorong, "도롱"),
             Pair(R.drawable.poter, "포터"),
@@ -152,6 +163,7 @@ class MainActivity2 : AppCompatActivity() {
             Pair(R.drawable.yongyong, "용용"),
             Pair(R.drawable.beobi, "버비"),
             Pair(R.drawable.anti, "앤티"),
+            Pair(R.drawable.cuaca, "쿠아카"),
             Pair(R.drawable.donk, "동크"),
             Pair(R.drawable.bingo, "빙고"),
             Pair(R.drawable.butterfin, "버터핀"),
