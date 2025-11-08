@@ -1,6 +1,7 @@
 package com.uparu.uparumaking
 
 import android.app.Dialog
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -8,8 +9,12 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -175,77 +180,88 @@ class MainActivity4 : AppCompatActivity() {
 
         val changeName = intent.getStringExtra("changeName") ?: return
         val target = UparuRepository.findByName(changeName) ?: return
-        bindHeaderWithRepository(target)
 
-        // 조합에 쓸 후보: 별속성 제외
-        val candidates = UparuRepository.nostar
-        // 타입 기반 조합법 계산
-        val parentPairs = CombinationEngine.recipesFor(target, candidates)
-
-        // RecyclerView 에 넣을 데이터 변환
-        val johapList = parentPairs.map { (p1, p2) ->
-            JohapData(
-                p1.profile,
-                p1.name,
-                R.drawable.plus,
-                p2.name,
-                p2.profile
-            )
-        }
-        //조합법 연결
-        recyclerView.adapter = CustomAdapterJohap(this, ArrayList(johapList))
-
-        if (target.isStar || target.isEvent) {
-            UparuPopupRepository.get(target.name)?.let { popup ->
-                showPopupDialog(target, popup)
-            }
+        val loadingDialog = ProgressDialog(this).apply {
+            setMessage("조합법 계산 중입니다...")
+            setCancelable(false)
+            show()
         }
 
-        //먹이량 계산
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        val levelView = findViewById<TextView>(R.id.levelView)
-        val feedView = findViewById<TextView>(R.id.feedView)
-        val feedNum = findViewById<TextView>(R.id.feedNum)
-        val feedButton = findViewById<ImageButton>(R.id.feedButton)
-        val habitatView = findViewById<TextView>(R.id.habitatView)
+        // 🔹 백그라운드에서 조합 계산
+        lifecycleScope.launch(Dispatchers.Default) {
+            val parentPairs = CombinationEngine.possibleParents(this@MainActivity4, target)
 
-        // 기본값 초기화
-        var level = 1
-        var clickCount = 0
-        var feedSum = 0
-        var num = 0
-        progressBar.progress = 0
+            // 🔹 계산이 끝나면 UI 업데이트
+            withContext(Dispatchers.Main) {
+                loadingDialog.dismiss()
 
-        levelView.text = "LV $level"
-        feedView.text = "총 먹이량: $feedSum"
+                bindHeaderWithRepository(target)
 
-        // habitat(속성)에 따라 2배 계산 (빛/어둠/황금/구름)
-        val habitat = habitatView.text.toString()
-        val feed = getFeedArrayForHabitat(habitat)
-
-        feedNum.text = "${feed[num]}"
-
-        feedButton.setOnClickListener {
-            when {
-                level < 44 -> {
-                    val result = handleFeedClick(
-                        feed, progressBar, levelView, feedView, feedNum,
-                        level, num, clickCount, feedSum
+                val johapList = parentPairs.map { (p1, p2) ->
+                    JohapData(
+                        p1.profile,
+                        p1.name,
+                        R.drawable.plus,
+                        p2.name,
+                        p2.profile
                     )
-                    level = result.level
-                    num = result.num
-                    clickCount = result.clickCount
-                    feedSum = result.feedSum
+                }
+                //조합법 연결
+                recyclerView.adapter = CustomAdapterJohap(this@MainActivity4, ArrayList(johapList))
+
+                if (target.isStar || target.isEvent) {
+                    UparuPopupRepository.get(target.name)?.let { popup ->
+                        showPopupDialog(target, popup)
+                    }
                 }
 
-                level == 44 -> {
-                    val result = handleFeedClickAtMax(
-                        feed, progressBar, levelView, feedView, feedNum,
-                        level, num, clickCount, feedSum
-                    )
-                    level = result.level
-                    clickCount = result.clickCount
-                    feedSum = result.feedSum
+                //먹이량 계산
+                val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+                val levelView = findViewById<TextView>(R.id.levelView)
+                val feedView = findViewById<TextView>(R.id.feedView)
+                val feedNum = findViewById<TextView>(R.id.feedNum)
+                val feedButton = findViewById<ImageButton>(R.id.feedButton)
+                val habitatView = findViewById<TextView>(R.id.habitatView)
+
+                // 기본값 초기화
+                var level = 1
+                var clickCount = 0
+                var feedSum = 0
+                var num = 0
+                progressBar.progress = 0
+
+                levelView.text = "LV $level"
+                feedView.text = "총 먹이량: $feedSum"
+
+                // habitat(속성)에 따라 2배 계산 (빛/어둠/황금/구름)
+                val habitat = habitatView.text.toString()
+                val feed = getFeedArrayForHabitat(habitat)
+
+                feedNum.text = "${feed[num]}"
+
+                feedButton.setOnClickListener {
+                    when {
+                        level < 44 -> {
+                            val result = handleFeedClick(
+                                feed, progressBar, levelView, feedView, feedNum,
+                                level, num, clickCount, feedSum
+                            )
+                            level = result.level
+                            num = result.num
+                            clickCount = result.clickCount
+                            feedSum = result.feedSum
+                        }
+
+                        level == 44 -> {
+                            val result = handleFeedClickAtMax(
+                                feed, progressBar, levelView, feedView, feedNum,
+                                level, num, clickCount, feedSum
+                            )
+                            level = result.level
+                            clickCount = result.clickCount
+                            feedSum = result.feedSum
+                        }
+                    }
                 }
             }
         }

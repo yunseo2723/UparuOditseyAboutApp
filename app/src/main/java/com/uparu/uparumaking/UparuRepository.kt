@@ -421,7 +421,7 @@ object UparuRepository {
             gold = 16,
             typeDrawable = R.drawable.typelng,
             egg = R.drawable.egglove,
-            typeText = "",
+            typeText = "천둥,숲",
             timeDisplay = "10시간30분",
             timeForSort = 10.5,
             sell = 350000
