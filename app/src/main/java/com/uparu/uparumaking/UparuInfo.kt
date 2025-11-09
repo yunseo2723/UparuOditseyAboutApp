@@ -5,9 +5,9 @@ data class UparuInfo(
     val name: String,
 
     val gold: Int,
-    val typeDrawable: Int,   // R.drawable.typelnwi 같은 타입 아이콘
+    val typeDrawable: Int,   // R.drawable.type 같은 타입 아이콘
 
-    val egg: Int,            // R.drawable.eggg 같은 알 이미지
+    val egg: Int,            // R.drawable.egg 같은 알 이미지
     val typeText: String,    // "숲", "물,숲" 같은 타입 문자열
     val timeDisplay: String, // "7초", "3분", "4시간30분" 등 표시용 시간
     val timeForSort: Double,  // 정렬용 시간 (MainActivity3 에서 쓰는 그 Double)

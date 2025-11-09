@@ -30,7 +30,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="150dp"
         android:layout_marginTop="60dp"
-        android:text="레이가가가"
+        android:text=""
         android:textColor="#FFFFFF"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -46,7 +46,7 @@
         android:layout_marginStart="42dp"
         android:layout_marginTop="125dp"
         android:background="@drawable/uparubackground"
-        app:srcCompat="@drawable/godaesinyong" />
+        app:srcCompat="@drawable/randomegg" />
 
     <TextView
         android:id="@+id/goldView"
@@ -56,7 +56,7 @@
         android:layout_marginTop="205dp"
         android:layout_toEndOf="@+id/uparuView"
         android:gravity="center"
-        android:text="35/분"
+        android:text=""
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/setView"
@@ -70,7 +70,7 @@
         android:layout_marginTop="205dp"
         android:layout_toEndOf="@+id/goldView"
         android:gravity="center"
-        android:text="빛"
+        android:text=""
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
         android:layout_marginTop="260dp"
         android:layout_toEndOf="@+id/sellsetView"
         android:gravity="center"
-        android:text="1353000"
+        android:text=""
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +124,7 @@
         android:layout_marginTop="345dp"
         android:layout_toEndOf="@+id/eggView"
         android:gravity="center"
-        android:text="36시간"
+        android:text=""
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +139,7 @@
         android:layout_alignEnd="@+id/uparuView"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        app:srcCompat="@drawable/typefire" />
+        app:srcCompat="@drawable/typeall" />
 
     <ImageView
         android:id="@+id/eggView"
@@ -149,7 +149,7 @@
         android:layout_alignStart="@+id/setView"
         android:layout_marginStart="27dp"
         android:layout_marginTop="15dp"
-        app:srcCompat="@drawable/eggg" />
+        app:srcCompat="@drawable/randomegg" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -178,7 +178,7 @@
         android:layout_alignStart="@+id/feedView"
         android:layout_marginTop="330dp"
         android:gravity="center_vertical"
-        android:text="LV 10"
+        android:text=""
         android:textSize="13dp"
         android:textStyle="bold" />
 
@@ -189,7 +189,7 @@
         android:layout_alignStart="@+id/sellsetView"
         android:layout_marginTop="308dp"
         android:gravity="center"
-        android:text="3600000000"
+        android:text=""
         android:textSize="13dp"
         android:textStyle="bold" />
 
@@ -201,7 +201,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="381dp"
         android:gravity="center"
-        android:text="36시간"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="10dp"
         android:textStyle="bold" />

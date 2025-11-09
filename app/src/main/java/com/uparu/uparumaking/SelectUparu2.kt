@@ -1,10 +1,10 @@
 package com.uparu.uparumaking
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.SearchView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 
 class SelectUparu2 : AppCompatActivity() {
@@ -12,22 +12,24 @@ class SelectUparu2 : AppCompatActivity() {
     val dataList: List<Data2> = UparuRepository.nostar
         .map { it.toData2() }
 
-    override fun onBackPressed() {
-        super.onBackPressed();
-        val intent = Intent(this, MainActivity6::class.java)
-        startActivity(intent)
-        finishAffinity()
-        overridePendingTransition(0, 0);
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_uparu)
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@SelectUparu2, MainActivity6::class.java)
+                startActivity(intent)
+                finishAffinity()
+                @Suppress("DEPRECATION")
+                overridePendingTransition(0, 0)
+            }
+        })
+
         val gridView = findViewById<GridView>(R.id.gridView2)
         val searchView = findViewById<SearchView>(R.id.searchView)
         val sortedDataList = dataList.sortedBy { it.name }
-        var newAdapter = CustomAdapter2(this@SelectUparu2, sortedDataList)
+        val newAdapter = CustomAdapter2(this@SelectUparu2, sortedDataList)
 
         gridView.adapter = newAdapter
         searchView.setIconifiedByDefault(false)
@@ -49,10 +51,10 @@ class SelectUparu2 : AppCompatActivity() {
         })
 
         gridView.setOnItemClickListener { _, _, position, _ ->
-            val item = (gridView.adapter as CustomAdapter2).getItem(position) as Data2
+            val item = (gridView.adapter as CustomAdapter2).getItem(position)
             val info = UparuRepository.findByName(item.name) ?: return@setOnItemClickListener
 
-            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             val intent = Intent(this@SelectUparu2, MainActivity6::class.java)
 
@@ -61,6 +63,7 @@ class SelectUparu2 : AppCompatActivity() {
             editor.apply()
 
             startActivity(intent)
+            @Suppress("DEPRECATION")
             overridePendingTransition(0, 0)
         }
     }

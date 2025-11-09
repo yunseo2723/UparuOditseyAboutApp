@@ -2358,14 +2358,6 @@ object UparuRepository {
         )
     )
 
-    /** 별속성 포함 전부 (별속성O) */
-    val star: List<UparuInfo>
-        get() = all.filter { it.isStar }
-
-    /** 이벤트/뽑기 포함 전부 (이벤트O) */
-    val event: List<UparuInfo>
-        get() = all.filter { it.isEvent }
-
     /** 조합에 쓸 우파루 (별속성X) */
     val nostar: List<UparuInfo>
         get() = all.filter { !it.isStar }

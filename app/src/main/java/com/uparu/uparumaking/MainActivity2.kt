@@ -7,10 +7,12 @@ import android.widget.AdapterView
 import android.widget.ImageButton
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 
+
 class MainActivity2 : AppCompatActivity() {
-    var DataList = arrayListOf(
+    var dataList = arrayListOf(
         Data(R.drawable.star1, "Star"),
         Data(R.drawable.cloud1, "Cloud"),
         Data(R.drawable.grass1, "Grass"),
@@ -23,23 +25,25 @@ class MainActivity2 : AppCompatActivity() {
         Data(R.drawable.magic1, "Magic")
     )
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finishAffinity()
-        overridePendingTransition(0, 0);
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@MainActivity2, MainActivity::class.java)
+                startActivity(intent)
+                finishAffinity()
+                @Suppress("DEPRECATION")
+                overridePendingTransition(0, 0)
+            }
+        })
+
         val listView = findViewById<ListView>(R.id.listView)
-        listView.adapter = CustomAdapter(this, DataList)
+        listView.adapter = CustomAdapter(this, dataList)
 
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            val clickedData = DataList[position]
+            val clickedData = dataList[position]
             when (clickedData.imageResId) {
                 R.drawable.star1 -> showStarDialog()
                 R.drawable.cloud1 -> showCloudDialog()
@@ -59,7 +63,8 @@ class MainActivity2 : AppCompatActivity() {
             // 새로운 액티비티로 이동
             val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
-            overridePendingTransition(0, 0);
+            @Suppress("DEPRECATION")
+            overridePendingTransition(0, 0)
         }
     }
 
@@ -595,6 +600,7 @@ class MainActivity2 : AppCompatActivity() {
         val intent = Intent(this, MainActivity4::class.java)
         intent.putExtra("changeName", selectedItem)
         startActivity(intent)
+        @Suppress("DEPRECATION")
         overridePendingTransition(0, 0)
     }
 }

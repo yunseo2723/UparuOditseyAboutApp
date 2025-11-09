@@ -1,7 +1,6 @@
 package com.uparu.uparumaking
 
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,22 +20,24 @@ class MainActivity7 : AppCompatActivity() {
             .map { it.toTimeData2() }
     )
 
-    override fun onBackPressed() {
-        super.onBackPressed();
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finishAffinity()
-        overridePendingTransition(0, 0);
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main7)
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@MainActivity7, MainActivity::class.java)
+                startActivity(intent)
+                finishAffinity()
+                @Suppress("DEPRECATION")
+                overridePendingTransition(0, 0)
+            }
+        })
+
         val recyclerView = findViewById<RecyclerView>(R.id.johpaList)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val imgButton = findViewById<ImageButton>(R.id.selectButton)
+        val uparuView = findViewById<ImageButton>(R.id.selectButton)
         val questionButton = findViewById<ImageButton>(R.id.questionButton)
 
 
@@ -44,8 +46,7 @@ class MainActivity7 : AppCompatActivity() {
             dialog.setContentView(R.layout.question_popup_layout)
 
             val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
-            textViewContent.text =
-                "상대 우파루를 선택해주세요.\n\n이후 <상성확인> 버튼을 누르면\n\n유리한 상성의 우파루를 확인할 수 있습니다."
+            textViewContent.text = getString(R.string.check_guide)
 
             val closeButton = dialog.findViewById<Button>(R.id.closeButton)
             closeButton.setOnClickListener {
@@ -55,19 +56,19 @@ class MainActivity7 : AppCompatActivity() {
             dialog.show() // 팝업 다이얼로그 표시
         }
 
-        imgButton.setOnClickListener {
+        uparuView.setOnClickListener {
             val intent = Intent(this, SelectUparu3::class.java)
             startActivity(intent)
+            @Suppress("DEPRECATION")
             overridePendingTransition(0, 0)
         }
 
         // MainActivity7에서 SharedPreferences를 사용하여 데이터 불러오기
-        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val changeUparu = sharedPreferences.getInt("changeUparu2", R.drawable.randomegg)
 
-        // 이미지 버튼 1 정보 업데이트
-        val uparuView1 = findViewById<ImageButton>(R.id.selectButton)
-        uparuView1.setImageResource(changeUparu)
+        // 이미지 버튼 정보 업데이트
+        uparuView.setImageResource(changeUparu)
 
         val changeType = sharedPreferences.getString("changeType2", "1")
 
@@ -205,7 +206,9 @@ class MainActivity7 : AppCompatActivity() {
                     val remaining = getRemainingProperties(a, weakProperties)
                     val remaining2 = getRemainingProperties(b, weakProperties)
                     val remaining3 = getRemainingProperties(c, weakProperties)
-                    val commonElements = remaining.intersect(remaining2).intersect(remaining3).toList()
+                    val commonElements = remaining.intersect(remaining2.toSet()).intersect(
+                        remaining3.toSet()
+                    ).toList()
                     val alltype = getRemainingProperties("", weakProperties)
                     Log.d("Filtering", "$a $b $c $strongA $commonElements")
 

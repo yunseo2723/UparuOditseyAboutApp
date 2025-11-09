@@ -1,58 +1,62 @@
 package com.uparu.uparumaking
 
-import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ImageButton
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-
 
 class EmailComposeActivity : AppCompatActivity() {
 
-    private val PICK_IMAGE_REQUEST = 1
     private var selectedImageUri: Uri? = null
     private lateinit var attachImageButton: ImageButton
+    private lateinit var sendButton: ImageButton
+    private lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_compose)
 
-        // 사진을 첨부하기 위한 버튼 클릭 핸들러
+        // 📌 버튼 연결
+        attachImageButton = findViewById(R.id.attachImageButton)
+        sendButton = findViewById(R.id.sendButton)
 
-        attachImageButton = findViewById<ImageButton>(R.id.attachImageButton)
+        // ✅ Activity Result API 등록
+        imagePickerLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+            if (result.resultCode == RESULT_OK && result.data != null) {
+                selectedImageUri = result.data!!.data
+                selectedImageUri?.let { uri ->
+                    // 버튼 크기 조정
+                    val layoutParams = attachImageButton.layoutParams
+                    layoutParams.width = 1000
+                    layoutParams.height = 1000
+                    attachImageButton.layoutParams = layoutParams
+
+                    // 이미지 버튼에 선택한 이미지 설정
+                    attachImageButton.setImageURI(uri)
+                }
+            }
+        }
+        // 📸 이미지 선택 버튼 클릭
         attachImageButton.setOnClickListener {
             openImageChooser()
         }
 
-        // 전송 버튼 클릭 핸들러
-        val sendButton = findViewById<ImageButton>(R.id.sendButton)
+        // 📩 이메일 전송 버튼 클릭
         sendButton.setOnClickListener {
             sendEmail()
         }
     }
-
     // 갤러리에서 이미지 선택
     private fun openImageChooser() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(intent, PICK_IMAGE_REQUEST)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val layoutParams = attachImageButton.layoutParams
-        layoutParams.width = 1000 // 가로 크기
-        layoutParams.height = 1000 // 세로 크기
-        attachImageButton.layoutParams = layoutParams
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            selectedImageUri = data?.data
-            selectedImageUri?.let {
-                // 이미지 버튼에 선택한 이미지 설정
-                attachImageButton.setImageURI(it)
-            }
-        }
+        imagePickerLauncher.launch(intent)
     }
 
     // 이메일 보내기
@@ -77,9 +81,7 @@ class EmailComposeActivity : AppCompatActivity() {
         // 이메일 앱 실행
         try {
             startActivity(emailIntent)
-        } catch (e: ActivityNotFoundException) {
-            // 구글 이메일 앱이 설치되어 있지 않을 경우 처리
-            // 다른 조치를 취하거나 사용자에게 앱 설치를 안내할 수 있음
+        } catch (_: ActivityNotFoundException) {
             startActivity(Intent.createChooser(emailIntent, "조합법 전송하기"))
         }
     }

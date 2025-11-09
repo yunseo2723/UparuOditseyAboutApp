@@ -1,16 +1,10 @@
 package com.uparu.uparumaking
 
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -19,19 +13,13 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 
 class MainActivity : AppCompatActivity() {
-
-    override fun onBackPressed() {
-        super.onBackPressed();
-        finish()
-    }
-
     private lateinit var firebaseRemoteConfig: FirebaseRemoteConfig
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // SharedPreferences 초기화
-        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         sharedPreferences.edit().clear().apply()
         val editor = sharedPreferences.edit()
 
@@ -47,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             .build()
         firebaseRemoteConfig.setConfigSettingsAsync(configSettings)
         firebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
-
         firebaseRemoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -59,11 +46,8 @@ class MainActivity : AppCompatActivity() {
 
         val textView = findViewById<TextView>(R.id.versionComment)
 
-
         val appVersion = packageManager.getPackageInfo(packageName, 0).versionName
         textView.text = "ver $appVersion"
-
-
 
         val imgbutton1 = findViewById<ImageButton>(R.id.imageButton1)   //조합법 버튼
         imgbutton1.setOnClickListener {
@@ -99,9 +83,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, EmailComposeActivity::class.java)
             startActivity(intent)
         }
-
     }
-
 
     private fun checkForUpdate() {
         val currentVersionName = packageManager.getPackageInfo(packageName, 0).versionName
@@ -122,7 +104,7 @@ class MainActivity : AppCompatActivity() {
             val appPackageName = packageName
             try {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
-            } catch (anfe: ActivityNotFoundException) {
+            } catch (_: ActivityNotFoundException) {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$appPackageName")))
             }
         }

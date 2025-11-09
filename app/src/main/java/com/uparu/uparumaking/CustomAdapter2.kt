@@ -10,11 +10,11 @@ import android.widget.TextView
 
 class Data2(val profile:Int, val name:String, val gold:Int, val type:Int, val time:Double)
 
-class CustomAdapter2(val context: Context, var DataList: List<Data2>) : BaseAdapter()
+class CustomAdapter2(val context: Context, var dataList: List<Data2>) : BaseAdapter()
 {
-    override fun getCount() = DataList.size
+    override fun getCount() = dataList.size
 
-    override fun getItem(position: Int) = DataList[position]
+    override fun getItem(position: Int) = dataList[position]
 
     override fun getItemId(position: Int) = 0L
 
@@ -28,7 +28,7 @@ class CustomAdapter2(val context: Context, var DataList: List<Data2>) : BaseAdap
         val type = view.findViewById<ImageView>(R.id.type_custom)
         val time = view.findViewById<TextView>(R.id.time_custom)
 
-        val data = DataList[position]
+        val data = dataList[position]
 
         profile.setImageResource(data.profile)
         name.text = data.name
@@ -37,11 +37,5 @@ class CustomAdapter2(val context: Context, var DataList: List<Data2>) : BaseAdap
         time.text = data.time.toString()
 
         return view
-    }
-
-    // 데이터 목록 업데이트 메서드
-    fun updateDataList(newDataList: List<Data2>) {
-        DataList = newDataList
-        notifyDataSetChanged()
     }
 }

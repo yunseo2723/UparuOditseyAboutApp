@@ -1,32 +1,34 @@
 package com.uparu.uparumaking
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.SearchView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 
 class SelectUparu3 : AppCompatActivity() {
     val dataList: List<Data2> = UparuRepository.all
         .map { it.toData2() }
 
-    override fun onBackPressed() {
-        super.onBackPressed();
-        val intent = Intent(this, MainActivity7::class.java)
-        startActivity(intent)
-        finishAffinity()
-        overridePendingTransition(0, 0);
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.select_uparu)
 
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@SelectUparu3, MainActivity7::class.java)
+                startActivity(intent)
+                finishAffinity()
+                @Suppress("DEPRECATION")
+                overridePendingTransition(0, 0)
+            }
+        })
+
         val gridView = findViewById<GridView>(R.id.gridView2)
         val searchView = findViewById<SearchView>(R.id.searchView)
         val sortedDataList = dataList.sortedBy { it.name }
-        var newAdapter = CustomAdapter2(this@SelectUparu3, sortedDataList)
+        val newAdapter = CustomAdapter2(this@SelectUparu3, sortedDataList)
 
         gridView.adapter = newAdapter
         searchView.setIconifiedByDefault(false)
@@ -51,7 +53,7 @@ class SelectUparu3 : AppCompatActivity() {
             val selectedName = (gridView.adapter as CustomAdapter2).getItem(position).name
             val info = UparuTypeMap.withStar[selectedName] ?: return@setOnItemClickListener
 
-            val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             val intent = Intent(this@SelectUparu3, MainActivity7::class.java)
 
@@ -60,6 +62,7 @@ class SelectUparu3 : AppCompatActivity() {
             editor.apply()
 
             startActivity(intent)
+            @Suppress("DEPRECATION")
             overridePendingTransition(0, 0)
         }
     }

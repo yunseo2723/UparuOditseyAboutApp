@@ -1,7 +1,7 @@
 package com.uparu.uparumaking
 
+import android.app.AlertDialog
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -58,7 +58,7 @@ class MainActivity4 : AppCompatActivity() {
         uparuView.setImageResource(info.profile)
         typeView.setImageResource(info.typeDrawable)
         eggView.setImageResource(info.egg)
-        goldView.text = "${info.gold}/분"
+        goldView.text = getString(R.string.gold_per_min, info.gold)
         habitatView.text = info.typeText
         sellView.text = formatSell(info.sell)
         timeView.text = info.timeDisplay
@@ -109,7 +109,7 @@ class MainActivity4 : AppCompatActivity() {
         var totalFeed = feedSum
 
         totalFeed += feed[n]
-        feedView.text = "총 먹이량: $totalFeed"
+        feedView.text = getString(R.string.feed_total, totalFeed)
 
         val currentProgress = progressBar.progress
         if (currentProgress < 75) {
@@ -124,8 +124,8 @@ class MainActivity4 : AppCompatActivity() {
                 clicks = 0
                 lv++
                 n++
-                levelView.text = "LV $lv"
-                feedNum.text = "${feed[n]}"
+                levelView.text = getString(R.string.level_format, lv)
+                feedNum.text = feed[n].toString()
             }
         }
 
@@ -150,7 +150,7 @@ class MainActivity4 : AppCompatActivity() {
         var totalFeed = feedSum
 
         totalFeed += feed[num]
-        feedView.text = "총 먹이량: $totalFeed"
+        feedView.text = getString(R.string.feed_total, totalFeed)
 
         val currentProgress = progressBar.progress
         if (currentProgress < 75) {
@@ -160,9 +160,9 @@ class MainActivity4 : AppCompatActivity() {
             if (clicks < 3) {
                 clicks++
             } else {
-                // 최대레벨 도달
-                levelView.text = "LV 45"
-                feedNum.text = "최대레벨"
+                lv = 45
+                levelView.text = getString(R.string.level_format, 45)
+                feedNum.setText(R.string.max_level)
                 progressBar.progress = 100
                 clicks = 4
             }
@@ -181,12 +181,11 @@ class MainActivity4 : AppCompatActivity() {
         val changeName = intent.getStringExtra("changeName") ?: return
         val target = UparuRepository.findByName(changeName) ?: return
 
-        val loadingDialog = ProgressDialog(this).apply {
-            setMessage("조합법 계산 중입니다...")
-            setCancelable(false)
-            show()
-        }
-
+        val loadingDialog = AlertDialog.Builder(this)
+            .setMessage(getString(R.string.loading_recipe))
+            .setCancelable(false)
+            .create()
+        loadingDialog.show()
         // 🔹 백그라운드에서 조합 계산
         lifecycleScope.launch(Dispatchers.Default) {
             val parentPairs = CombinationEngine.possibleParents(this@MainActivity4, target)
@@ -230,14 +229,15 @@ class MainActivity4 : AppCompatActivity() {
                 var num = 0
                 progressBar.progress = 0
 
-                levelView.text = "LV $level"
-                feedView.text = "총 먹이량: $feedSum"
+                levelView.text = getString(R.string.level_format, level)
+                feedView.text = getString(R.string.feed_total, feedSum)
+
 
                 // habitat(속성)에 따라 2배 계산 (빛/어둠/황금/구름)
                 val habitat = habitatView.text.toString()
                 val feed = getFeedArrayForHabitat(habitat)
 
-                feedNum.text = "${feed[num]}"
+                feedNum.text = feed[num].toString()
 
                 feedButton.setOnClickListener {
                     when {

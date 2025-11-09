@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">uparumaking</string>
+    <string name="loading_recipe">조합법 계산 중입니다…</string>
+
+    <string name="level_format">LV %1$d</string>
+    <string name="feed_total">총 먹이량: %1$d</string>
+    <string name="max_level">최대레벨</string>
+    <string name="gold_per_min">%1$d/분</string>
+
+    <string name="cross_guide">
+    크로스할 두 우파루를 선택해주세요.\n
+    이후 &lt;조합시작&gt; 버튼을 누르면\n
+    소환 가능한 우파루를 확인할 수 있습니다
+    </string>
+
+    <string name="check_guide">
+    상대 우파루를 선택해주세요.\n
+    이후 &lt;상성확인&gt; 버튼을 누르면\n
+    유리한 상성의 우파루를 확인할 수 있습니다.
+    </string>
+
 </resources>

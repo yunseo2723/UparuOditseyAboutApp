@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TimeData(val profile:Int, val name:String, val egg:Int, val st:String, val time:String)
 
-class CustomAdapterTime(val context: Context, var DataList: ArrayList<TimeData>) :
+class CustomAdapterTime(val context: Context, var dataList: ArrayList<TimeData>) :
     RecyclerView.Adapter<CustomAdapterTime.ViewHolder>() {
 
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val profile: ImageView = itemView.findViewById(R.id.uparu)
         val name: TextView = itemView.findViewById(R.id.name)
         val egg: ImageView = itemView.findViewById(R.id.egg1)
@@ -28,7 +28,7 @@ class CustomAdapterTime(val context: Context, var DataList: ArrayList<TimeData>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val data = DataList[position]
+        val data = dataList[position]
         holder.profile.setImageResource(data.profile)
         holder.name.text = data.name
         holder.egg.setImageResource(data.egg)
@@ -37,7 +37,7 @@ class CustomAdapterTime(val context: Context, var DataList: ArrayList<TimeData>)
     }
 
     override fun getItemCount(): Int {
-        return DataList.size
+        return dataList.size
     }
 }
 
