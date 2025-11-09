@@ -6,13 +6,6 @@
     android:background="@drawable/background00"
     tools:context=".MainActivity4">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/johpaList"
-        android:layout_width="350dp"
-        android:layout_height="255dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="445dp" />
-
     <ImageView
         android:id="@+id/setView"
         android:layout_width="379dp"
@@ -206,4 +199,15 @@
         android:textSize="10dp"
         android:textStyle="bold" />
 
+    <ImageButton
+        android:id="@+id/btnShowCombination"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/setView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/johapcheckbutton" />
 </RelativeLayout>

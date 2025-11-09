@@ -21,6 +21,12 @@ class CustomAdapterJohap(
     val dataList: ArrayList<JohapData>
 ) : RecyclerView.Adapter<CustomAdapterJohap.ViewHolder>() {
 
+    fun submitList(newList: List<JohapData>) {
+        dataList.clear()
+        dataList.addAll(newList)
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val profile1: ImageView = itemView.findViewById(R.id.img1)
         val name1: TextView = itemView.findViewById(R.id.txt1)

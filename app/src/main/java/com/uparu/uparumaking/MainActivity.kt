@@ -76,13 +76,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity7::class.java)
             startActivity(intent)
         }
-
-        val imgbutton5 = findViewById<ImageButton>(R.id.imageButton5)   //조합법 제보 버튼
-        imgbutton5.setOnClickListener {
-            // 새로운 액티비티로 이동
-            val intent = Intent(this, EmailComposeActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun checkForUpdate() {
