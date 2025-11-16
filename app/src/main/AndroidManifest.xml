@@ -11,49 +11,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Uparumaking"
-        tools:targetApi="31">
+        tools:targetApi="35">
         <activity
-            android:name=".JohapListActivity"
+            android:name=".activity.BreedingPairListActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectUparu3"
+            android:name=".activity.SelectAffinityUparuActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".SelectUparu2"
+            android:name=".activity.SelectSecondParentActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".SelectUparu"
+            android:name=".activity.SelectFirstParentActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MainActivity7"
+            android:name=".activity.UparuAffinityActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MainActivity6"
+            android:name=".activity.BreedingResultActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MainActivity5"
+            android:name=".activity.BreedingTimeListActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MainActivity4"
+            android:name=".activity.UparuDetailActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MainActivity3"
+            android:name=".activity.UparuListActivity"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".MainActivity2"
+            android:name=".activity.ElementSelectActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.HomeActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>

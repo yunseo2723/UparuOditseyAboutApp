@@ -1,0 +1,227 @@
+package com.uparu.uparumaking.activity
+
+import android.app.Dialog
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.uparu.uparumaking.adapter.TypeTimeAdapter
+import com.uparu.uparumaking.adapter.TypeTimeItem
+import com.uparu.uparumaking.R
+import com.uparu.uparumaking.etc.UparuInfo
+import com.uparu.uparumaking.UparuRepository
+import com.uparu.uparumaking.etc.toTypeTimeItem
+
+class UparuAffinityActivity : AppCompatActivity() {
+    val dataList: ArrayList<TypeTimeItem> = ArrayList(
+        UparuRepository.all
+            .sortedWith(compareBy<UparuInfo> { it.timeForSort }.thenBy { it.name })
+            .map { it.toTypeTimeItem() }
+    )
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_affinity_result)
+
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                startActivity(Intent(this@UparuAffinityActivity, HomeActivity::class.java))
+                finishAffinity()
+                @Suppress("DEPRECATION")
+                overridePendingTransition(0, 0)
+            }
+        })
+
+        val recyclerView = findViewById<RecyclerView>(R.id.johpaList)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val uparuView = findViewById<ImageButton>(R.id.selectButton)
+        val questionButton = findViewById<ImageButton>(R.id.questionButton)
+
+
+        questionButton.setOnClickListener {
+            val dialog = Dialog(this)
+            dialog.setContentView(R.layout.question_popup_layout)
+
+            val textViewContent = dialog.findViewById<TextView>(R.id.popupContent)
+            textViewContent.text = getString(R.string.check_guide)
+
+            val closeButton = dialog.findViewById<Button>(R.id.closeButton)
+            closeButton.setOnClickListener {
+                dialog.dismiss() // 팝업 닫기
+            }
+
+            dialog.show() // 팝업 다이얼로그 표시
+        }
+
+        uparuView.setOnClickListener {
+            startActivity(Intent(this, SelectAffinityUparuActivity::class.java))
+            @Suppress("DEPRECATION")
+            overridePendingTransition(0, 0)
+        }
+
+        // UparuAffinityActivity에서 SharedPreferences를 사용하여 데이터 불러오기
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val changeUparu = sharedPreferences.getInt("changeUparu2", R.drawable.randomegg)
+
+        // 이미지 버튼 정보 업데이트
+        uparuView.setImageResource(changeUparu)
+
+        val changeType = sharedPreferences.getString("changeType2", "1")
+
+        val buttonJohap = findViewById<ImageButton>(R.id.checkButton)
+
+        buttonJohap.setOnClickListener {
+            recyclerView.visibility = View.VISIBLE
+
+            // 각 속성에 대한 강한 속성과 약한 속성을 맵으로 지정
+            val strongProperties = mapOf(
+                "숲" to listOf("불", "얼음"),
+                "땅" to listOf("바람", "매직", "황금"),
+                "불" to listOf("물", "매직"),
+                "물" to listOf("숲", "천둥"),
+                "천둥" to listOf("땅", "바람", "빛"),
+                "바람" to listOf("불", "매직"),
+                "얼음" to listOf("불", "황금"),
+                "매직" to listOf("물", "얼음"),
+                "빛" to listOf("숲", "어둠"),
+                "어둠" to listOf("땅", "빛"),
+                "황금" to listOf("천둥", "어둠")
+            )
+
+            val weakProperties = mapOf(
+                "숲" to listOf("물", "빛"),
+                "땅" to listOf("천둥", "어둠"),
+                "불" to listOf("숲", "바람", "얼음"),
+                "물" to listOf("불", "매직"),
+                "천둥" to listOf("물", "황금"),
+                "바람" to listOf("땅", "천둥"),
+                "얼음" to listOf("숲", "매직"),
+                "매직" to listOf("땅", "불", "바람"),
+                "빛" to listOf("천둥", "어둠"),
+                "어둠" to listOf("빛", "황금"),
+                "황금" to listOf("땅", "얼음")
+            )
+            fun getRemainingProperties(selectedProperty: String, weakProperties: Map<String, List<String>>): List<String> {
+                val allProperties = listOf("숲", "땅", "불", "물", "천둥", "바람", "얼음", "매직", "빛", "어둠", "황금")
+
+                val excludedProperties = weakProperties[selectedProperty] ?: emptyList()
+                return allProperties.filterNot { excludedProperties.contains(it) }
+            }
+
+            fun printAllPossibleCombinations(strongA: List<String>, commonElements: List<String>, alltype: List<String>) : List<String> {
+                val combinations = mutableListOf<String>()
+                val combinationsa = mutableListOf<String>()
+                val combinationsb = mutableListOf<String>()
+                val combinationsc = mutableListOf<String>()
+                val combinationsd = mutableListOf<String>()
+
+                for (a in commonElements) {
+                    if (strongA.contains(a)) {
+                        for (b in alltype) {
+                            for (c in alltype) {
+                                val combination1 = listOf(a, b, c).joinToString(",")
+                                val combination2 = listOf(a, b).joinToString(",")
+                                val combination3 = listOf(a).joinToString(",")
+                                combinationsa.add(combination1)
+                                combinationsa.add(combination2)
+                                if (combination3.contains(b)) {
+                                    combinationsa.add(combination3)
+                                }
+                            }
+                        }
+                    }
+                }
+                for (a in commonElements) {
+                    if (!strongA.contains(a)) {
+                        for (b in strongA) {
+                            for (c in strongA) {
+                                val combination1 = listOf(a, b, c).joinToString(",")
+                                val combination2 = listOf(a, b).joinToString(",")
+                                val combination3 = listOf(a).joinToString(",")
+                                combinationsb.add(combination1)
+                                combinationsb.add(combination2)
+                                if (combination3.contains(b)) {
+                                    combinationsb.add(combination3)
+                                }
+                            }
+                        }
+                    }
+                }
+                for (a in commonElements) {
+                    if (!strongA.contains(a)) {
+                        for (b in strongA) {
+                            if(strongA.contains(b))
+                                for (c in alltype) {
+                                    val combination1 = listOf(a, b, c).joinToString(",")
+                                    val combination2 = listOf(a, b).joinToString(",")
+                                    val combination3 = listOf(a).joinToString(",")
+                                    combinationsc.add(combination1)
+                                    combinationsc.add(combination2)
+                                    if (combination3.contains(b)) {
+                                        combinationsc.add(combination3)
+                                    }
+                                }
+                        }
+                    }
+                }
+                    for (a in commonElements) {
+                        if (!strongA.contains(a)) {
+                            for (c in strongA) {
+                                if (alltype.contains(c) && strongA.contains(c)) {
+                                    for (b in alltype) {
+                                        val combination1 = listOf(a, b, c).joinToString(",")
+                                        val combination2 = listOf(a, b).joinToString(",")
+                                        val combination3 = listOf(a).joinToString(",")
+                                        combinationsd.add(combination1)
+                                        if (combination3.contains(c)) {
+                                            combinationsd.add(combination2)
+                                        }
+                                        if (combination3.contains(c)) {
+                                            combinationsd.add(combination3)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                combinations.addAll(combinationsa)
+                combinations.addAll(combinationsb)
+                combinations.addAll(combinationsc)
+                combinations.addAll(combinationsd)
+                return combinations.distinct()
+            }
+
+            val filteredDataList = dataList.filter { data ->
+                    val result = data.type
+                    val options = changeType?.split(",") ?: emptyList()
+                    val a = options.getOrNull(0) ?: ""
+                    val b = options.getOrNull(1) ?: ""
+                    val c = options.getOrNull(2) ?: ""
+                    val strongA = strongProperties[a] ?: emptyList()
+                    val remaining = getRemainingProperties(a, weakProperties)
+                    val remaining2 = getRemainingProperties(b, weakProperties)
+                    val remaining3 = getRemainingProperties(c, weakProperties)
+                    val commonElements = remaining.intersect(remaining2.toSet()).intersect(
+                        remaining3.toSet()
+                    ).toList()
+                    val alltype = getRemainingProperties("", weakProperties)
+
+                    val resulttype = printAllPossibleCombinations(strongA, commonElements, alltype)
+
+                resulttype.contains(result)
+
+                } as ArrayList<TypeTimeItem>
+
+                val newAdapter = TypeTimeAdapter(this, filteredDataList)
+                recyclerView.adapter = newAdapter
+            }
+        }
+    }

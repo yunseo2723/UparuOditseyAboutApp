@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background00"
+    tools:context=".activity.UparuDetailActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/johpaList"
+        android:layout_width="350dp"
+        android:layout_height="650dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp" />
+
+    <SearchView
+        android:id="@+id/searchViewLeft"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/johpaList"
+        android:layout_marginTop="70dp"
+        android:queryHint="검색" />
+
+    <SearchView
+        android:id="@+id/searchViewRight"
+        android:layout_width="175dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/johpaList"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="175dp"
+        android:queryHint="검색" />
+</RelativeLayout>

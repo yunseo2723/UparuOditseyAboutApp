@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"   xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background00"
+    tools:context=".activity.UparuDetailActivity">
+
+    <ImageView
+        android:id="@+id/setView"
+        android:layout_width="379dp"
+        android:layout_height="431dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settingview" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="150dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="60dp"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@+id/setView"
+        app:layout_constraintTop_toTopOf="@+id/setView" />
+
+    <ImageView
+        android:id="@+id/uparuView"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_alignStart="@+id/setView"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="125dp"
+        android:background="@drawable/uparubackground"
+        app:srcCompat="@drawable/randomegg" />
+
+    <TextView
+        android:id="@+id/goldView"
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="205dp"
+        android:layout_toEndOf="@+id/uparuView"
+        android:gravity="center"
+        android:text=""
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/setView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/habitatView"
+        android:layout_width="60dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="205dp"
+        android:layout_toEndOf="@+id/goldView"
+        android:gravity="center"
+        android:text=""
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sellsetView"
+        android:layout_width="80dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="260dp"
+        android:layout_toEndOf="@+id/typeView"
+        android:gravity="center"
+        android:text="판매 금액 : "
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sellView"
+        android:layout_width="70dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="260dp"
+        android:layout_toEndOf="@+id/sellsetView"
+        android:gravity="center"
+        android:text=""
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timesetView"
+        android:layout_width="65dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="302dp"
+        android:layout_toEndOf="@+id/eggView"
+        android:gravity="center"
+        android:text="소환시간"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="80dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="345dp"
+        android:layout_toEndOf="@+id/eggView"
+        android:gravity="center"
+        android:text=""
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/typeView"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/uparuView"
+        android:layout_alignStart="@+id/uparuView"
+        android:layout_alignEnd="@+id/uparuView"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/typeall" />
+
+    <ImageView
+        android:id="@+id/eggView"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/typeView"
+        android:layout_alignStart="@+id/setView"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/randomegg" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/feedView"
+        android:layout_marginTop="330dp"
+        android:progressDrawable="@drawable/custom_progress_bar" />
+
+    <ImageButton
+        android:id="@+id/feedButton"
+        android:layout_width="160dp"
+        android:layout_height="55dp"
+        android:layout_alignStart="@+id/feedView"
+        android:layout_alignEnd="@+id/progressBar"
+        android:layout_marginTop="350dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/feedbutton" />
+
+    <TextView
+        android:id="@+id/levelView"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/feedView"
+        android:layout_marginTop="330dp"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textSize="13dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/feedView"
+        android:layout_width="140dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/sellsetView"
+        android:layout_marginTop="308dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="13dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/feedNum"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@+id/feedButton"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="381dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/btnShowCombination"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/setView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/johapcheckbutton" />
+</RelativeLayout>
