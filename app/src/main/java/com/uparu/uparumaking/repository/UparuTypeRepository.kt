@@ -351,7 +351,9 @@ object UparuTypeRepository {
         "피스케" to Info(R.drawable.piske, "물,매직,강철"),
         "젠틀펭" to Info(R.drawable.jentlpeng, "얼음,물"),
         "에티볼" to Info(R.drawable.etiball, "천둥,슈가,불"),
-        "뱃도치" to Info(R.drawable.batdochi, "땅,불,물")
+        "뱃도치" to Info(R.drawable.batdochi, "땅,불,물"),
+        "소시지" to Info(R.drawable.sausage, "땅,불,매직"),
+        "루미" to Info(R.drawable.rumi, "얼음,바람,강철")
     )
     val withStar: Map<String, Info> = normal + mapOf(
         "레이"      to Info(R.drawable.rey, "빛"),
