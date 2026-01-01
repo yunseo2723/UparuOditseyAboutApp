@@ -12,9 +12,12 @@ enum class Element {
     WIND,       // 바람
     ICE,        // 얼음
     MAGIC,      // 마법
+    SUGAR,      // 슈가
+    IRON,      // 강철
     STAR,       // 별 (별속성)
     CLOUD,      // 구름
+    RAINBOW,    // 무지개
     LIGHT,      // 빛
-    DARK,        // 어둠
+    DARK,       // 어둠
     GOLD        // 황금
 }

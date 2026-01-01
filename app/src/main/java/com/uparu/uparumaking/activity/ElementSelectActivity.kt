@@ -21,6 +21,7 @@ class ElementSelectActivity : AppCompatActivity() {
     private val menu: List<Pair<ListItem, Element>> = listOf(
         ListItem(R.drawable.star1, "Star") to Element.STAR,
         ListItem(R.drawable.cloud1, "Cloud") to Element.CLOUD,
+        ListItem(R.drawable.rainbow1, "Rainbow") to Element.RAINBOW,
         ListItem(R.drawable.grass1, "Grass") to Element.GRASS,
         ListItem(R.drawable.ground1, "Ground") to Element.GROUND,
         ListItem(R.drawable.fire1, "Fire") to Element.FIRE,
@@ -28,7 +29,9 @@ class ElementSelectActivity : AppCompatActivity() {
         ListItem(R.drawable.lightning1, "Lightning") to Element.LIGHTNING,
         ListItem(R.drawable.wind1, "Wind") to Element.WIND,
         ListItem(R.drawable.ice1, "Ice") to Element.ICE,
-        ListItem(R.drawable.magic1, "Magic") to Element.MAGIC
+        ListItem(R.drawable.magic1, "Magic") to Element.MAGIC,
+        ListItem(R.drawable.sugar1, "Magic") to Element.SUGAR,
+        ListItem(R.drawable.iron1, "Magic") to Element.IRON
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +77,7 @@ class ElementSelectActivity : AppCompatActivity() {
             return when (e) {
                 Element.STAR      -> t.contains("빛") || t.contains("어둠") || t.contains("황금")
                 Element.CLOUD     -> t.contains("구름") || info.typeDrawable == R.drawable.typecloud
+                Element.RAINBOW     -> t.contains("무지개") || info.typeDrawable == R.drawable.typerainbow
 
                 Element.LIGHT     -> t.contains("빛")   || info.typeDrawable == R.drawable.typelight
                 Element.DARK      -> t.contains("어둠") || info.typeDrawable == R.drawable.typedark
@@ -87,6 +91,8 @@ class ElementSelectActivity : AppCompatActivity() {
                 Element.WIND      -> t.contains("바람")
                 Element.ICE       -> t.contains("얼음")
                 Element.MAGIC     -> t.contains("매직")
+                Element.SUGAR       -> t.contains("슈가")
+                Element.IRON     -> t.contains("강철")
             }
         }
 

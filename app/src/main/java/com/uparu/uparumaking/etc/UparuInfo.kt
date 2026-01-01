@@ -15,5 +15,7 @@ data class UparuInfo(
     val sell: Int = 0,       // 판매 가격 (숫자, 0이면 미입력으로)
 
     val isEvent: Boolean = false, // 뽑기/이벤트 여부
-    val isStar: Boolean = false   // 별속성(빛/어둠) 여부
+    val isStar: Boolean = false,   // 별속성(빛/어둠) 여부
+    val oneEvolution: Boolean = false,   // 신성진화 1단계
+    val twoEvolution: Boolean = false   // 신성진화 2단계
 )

@@ -587,7 +587,8 @@ object UparuRepository {
             typeText = "구름",
             timeDisplay = "50시간",
             timeForSort = 50.0,
-            isStar = true
+            isStar = true,
+            twoEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.mendi,
@@ -709,7 +710,8 @@ object UparuRepository {
             typeText = "구름",
             timeDisplay = "50시간",
             timeForSort = 50.0,
-            isStar = true
+            isStar = true,
+            oneEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.miyo,
@@ -2432,7 +2434,8 @@ object UparuRepository {
             timeDisplay = "50시간",
             timeForSort = 50.0,
             isEvent = true,
-            isStar = true
+            isStar = true,
+            oneEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.lapunta,
@@ -2444,7 +2447,8 @@ object UparuRepository {
             timeDisplay = "50시간",
             timeForSort = 50.0,
             isEvent = true,
-            isStar = true
+            isStar = true,
+            twoEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.balient,
@@ -2456,7 +2460,8 @@ object UparuRepository {
             timeDisplay = "52시간",
             timeForSort = 52.0,
             isEvent = true,
-            isStar = true
+            isStar = true,
+            oneEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.mars,
@@ -2468,7 +2473,8 @@ object UparuRepository {
             timeDisplay = "52시간",
             timeForSort = 52.0,
             isEvent = true,
-            isStar = true
+            isStar = true,
+            twoEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.adel,
@@ -2546,7 +2552,8 @@ object UparuRepository {
             timeDisplay = "52시간",
             timeForSort = 52.0,
             isStar = true,
-            isEvent = true
+            isEvent = true,
+            oneEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.miraju,
@@ -2558,7 +2565,8 @@ object UparuRepository {
             timeDisplay = "52시간",
             timeForSort = 52.0,
             isStar = true,
-            isEvent = true
+            isEvent = true,
+            twoEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.ggebi,
@@ -2778,7 +2786,8 @@ object UparuRepository {
             timeDisplay = "50시간",
             timeForSort = 50.0,
             isEvent = true,
-            isStar = true
+            isStar = true,
+            oneEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.angel,
@@ -2790,7 +2799,8 @@ object UparuRepository {
             timeDisplay = "50시간",
             timeForSort = 50.0,
             isEvent = true,
-            isStar = true
+            isStar = true,
+            twoEvolution = true
         ),
         UparuInfo(
             profile = R.drawable.bakoto,

@@ -2,7 +2,9 @@ package com.uparu.uparumaking.activity
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.widget.ProgressBar
 import android.widget.SearchView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,14 +34,33 @@ class BreedingPairListActivity : AppCompatActivity() {
         val changeName = intent.getStringExtra("changeName") ?: return
         val target = UparuRepository.findByName(changeName) ?: return
 
+        // 🔹 커스텀 로딩 다이얼로그 생성
+        val loadingView = layoutInflater.inflate(R.layout.dialog_loading_breeding, null)
+        val loadingBar = loadingView.findViewById<ProgressBar>(R.id.progressBarLoading)
+        val loadingPercent = loadingView.findViewById<TextView>(R.id.tvLoadingPercent)
+
+        loadingBar.max = 100
+        loadingBar.progress = 0
+        loadingPercent.text = getString(R.string.loading_breeding_percent, 0)
+
         val loadingDialog = AlertDialog.Builder(this)
-            .setMessage(getString(R.string.loading_recipe))
+            .setView(loadingView)
             .setCancelable(false)
             .create()
         loadingDialog.show()
 
         lifecycleScope.launch(Dispatchers.Default) {
-            val parentPairs = CombinationEngine.possibleParents(this@BreedingPairListActivity, target)
+            val parentPairs = CombinationEngine.possibleParents(
+                context = this@BreedingPairListActivity,
+                target = target,
+                candidates = UparuRepository.nostar,
+                onProgress = { percent ->
+                    runOnUiThread {
+                        loadingBar.progress = percent
+                        loadingPercent.text = getString(R.string.loading_percent, percent)
+                    }
+                }
+            )
 
             withContext(Dispatchers.Main) {
                 loadingDialog.dismiss()
@@ -78,11 +99,20 @@ class BreedingPairListActivity : AppCompatActivity() {
             val rq = rightQuery.trim()
 
             val filtered = fullJohapList.filter { item ->
-                // JohapData 안에 들어있는 이름 필드 이름에 맞게 수정!
-                val leftName = item.name1   // 예시
-                val rightName = item.name2 // 예시
-                (lq.isEmpty() || leftName.contains(lq, ignoreCase = true)) &&
-                        (rq.isEmpty() || rightName.contains(rq, ignoreCase = true))
+                val leftName = item.name1
+                val rightName = item.name2
+
+                val leftMatch =
+                    lq.isEmpty() ||
+                            leftName.contains(lq, ignoreCase = true) ||
+                            rightName.contains(lq, ignoreCase = true)
+
+                val rightMatch =
+                    rq.isEmpty() ||
+                            leftName.contains(rq, ignoreCase = true) ||
+                            rightName.contains(rq, ignoreCase = true)
+
+                leftMatch && rightMatch
             }
             adapter.submitList(filtered)
         }

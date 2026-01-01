@@ -81,13 +81,33 @@ class UparuDetailActivity : AppCompatActivity() {
     )
 
     /** 속성에 따라 먹이량 조정 (빛/어둠/황금/구름 → 2배) */
-    private fun getFeedArrayForHabitat(habitat: String): IntArray {
+    private fun getFeedArrayForHabitat(info: UparuInfo): IntArray {
+
+        val habitat = info.typeText
         val copy = baseFeed.clone()
-        if (habitat in listOf("빛", "어둠", "황금", "구름")) {
+
+        // 1) 기본 속성 배수 (빛/어둠/황금/구름 → ×2)
+        if (habitat.contains("빛") ||
+            habitat.contains("어둠") ||
+            habitat.contains("황금") ||
+            habitat.contains("구름")
+        ) {
             for (i in copy.indices) copy[i] *= 2
         }
+
+        // 2) 1진화 → ×20
+        if (info.oneEvolution) {
+            for (i in copy.indices) copy[i] *= 10
+        }
+
+        // 3) 2진화(= 신성진화) → ×30
+        if (info.twoEvolution) {
+            for (i in copy.indices) copy[i] *= 15
+        }
+
         return copy
     }
+
 
     /** 일반 레벨(1~44 전까지) 처리 */
     private fun handleFeedClick(
@@ -191,7 +211,6 @@ class UparuDetailActivity : AppCompatActivity() {
         val feedView = findViewById<TextView>(R.id.feedView)
         val feedNum = findViewById<TextView>(R.id.feedNum)
         val feedButton = findViewById<ImageButton>(R.id.feedButton)
-        val habitatView = findViewById<TextView>(R.id.habitatView)
 
         // 기본값 초기화
         var level = 1
@@ -203,13 +222,11 @@ class UparuDetailActivity : AppCompatActivity() {
         levelView.text = getString(R.string.level_format, level)
         feedView.text = getString(R.string.feed_total, feedSum)
 
-
-        // habitat(속성)에 따라 2배 계산 (빛/어둠/황금/구름)
-        val habitat = habitatView.text.toString()
-        val feed = getFeedArrayForHabitat(habitat)
+        val feed = getFeedArrayForHabitat(target)
 
         feedNum.text = feed[num].toString()
 
+        @Suppress("ASSIGNED_VALUE_IS_NEVER_READ")
         feedButton.setOnClickListener {
             when {
                 level < 44 -> {

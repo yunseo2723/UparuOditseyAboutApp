@@ -20,7 +20,7 @@ import com.uparu.uparumaking.UparuRepository
 import com.uparu.uparumaking.etc.toUparuGridItem
 
 enum class ElementFilter {
-    ALL, GRASS, GROUND, FIRE, WATER, LIGHTNING, WIND, ICE, MAGIC, STAR, CLOUD
+    ALL, GRASS, GROUND, FIRE, WATER, LIGHTNING, WIND, ICE, MAGIC, SUGAR, IRON, STAR, CLOUD, RAINBOW
 }
 
 // ─────────────────────── 메타 캐시 (이름별로 빠른 필터링용) ───────────────────────
@@ -33,8 +33,11 @@ private data class TypeMeta(
     val wind: Boolean,
     val ice: Boolean,
     val magic: Boolean,
+    val sugar: Boolean,
+    val iron: Boolean,
     val cloud: Boolean,
-    val star: Boolean
+    val star: Boolean,
+    val rainbow: Boolean
 )
 
 private val metaByName: Map<String, TypeMeta> by lazy {
@@ -49,8 +52,11 @@ private val metaByName: Map<String, TypeMeta> by lazy {
             wind = "바람" in t,
             ice = "얼음" in t,
             magic = "매직" in t,
-            cloud = "구름" in t || info.typeDrawable == R.drawable.typecloud,
-            star = ("빛" in t) || ("어둠" in t) || ("황금" in t)
+            sugar = "슈가" in t,
+            iron = "강철" in t,
+            cloud = "구름" in t,
+            star = ("빛" in t) || ("어둠" in t) || ("황금" in t),
+            rainbow = "무지개" in t
         )
     }
 }
@@ -69,9 +75,12 @@ private fun List<UparuGridItem>.filterByElement(filter: ElementFilter): List<Upa
             ElementFilter.WIND      -> meta.wind
             ElementFilter.ICE       -> meta.ice
             ElementFilter.MAGIC     -> meta.magic
+            ElementFilter.SUGAR     -> meta.sugar
+            ElementFilter.IRON     -> meta.iron
             ElementFilter.STAR      -> meta.star
             ElementFilter.CLOUD     -> meta.cloud
-            ElementFilter.ALL       -> true
+            ElementFilter.RAINBOW     -> meta.rainbow
+            else -> false
         }
     }
 }
@@ -169,8 +178,11 @@ class UparuListActivity : AppCompatActivity() {
         val buttonTypeWind = findViewById<ImageButton>(R.id.buttonTypeWind)
         val buttonTypeIce = findViewById<ImageButton>(R.id.buttonTypeIce)
         val buttonTypeMagic = findViewById<ImageButton>(R.id.buttonTypeMagic)
+        val buttonTypeSugar = findViewById<ImageButton>(R.id.buttonTypeSugar)
+        val buttonTypeIron = findViewById<ImageButton>(R.id.buttonTypeIron)
         val buttonTypeStar = findViewById<ImageButton>(R.id.buttonTypeStar)
         val buttonTypeCloud = findViewById<ImageButton>(R.id.buttonTypeCloud)
+        val buttonTypeRainbow = findViewById<ImageButton>(R.id.buttonTypeRainbow)
 
         fun setFilterAndRefresh(filter: ElementFilter) {
             if (currentElementFilter == filter) {
@@ -192,8 +204,11 @@ class UparuListActivity : AppCompatActivity() {
         buttonTypeWind.setOnClickListener { setFilterAndRefresh(ElementFilter.WIND) }
         buttonTypeIce.setOnClickListener { setFilterAndRefresh(ElementFilter.ICE) }
         buttonTypeMagic.setOnClickListener { setFilterAndRefresh(ElementFilter.MAGIC) }
+        buttonTypeSugar.setOnClickListener { setFilterAndRefresh(ElementFilter.SUGAR) }
+        buttonTypeIron.setOnClickListener { setFilterAndRefresh(ElementFilter.IRON) }
         buttonTypeStar.setOnClickListener { setFilterAndRefresh(ElementFilter.STAR) }
         buttonTypeCloud.setOnClickListener { setFilterAndRefresh(ElementFilter.CLOUD) }
+        buttonTypeRainbow.setOnClickListener { setFilterAndRefresh(ElementFilter.RAINBOW) }
     }
 
     // 필터 적용 후 그리드 갱신

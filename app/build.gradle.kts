@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
 }
@@ -13,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.uparu.uparumaking"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 36
         versionName = "3.0.0"
 
@@ -33,8 +32,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
     }
     buildToolsVersion = "35.0.0"
     ndkVersion = "25.1.8937393"
@@ -59,7 +60,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
+    implementation(platform("com.google.firebase:firebase-bom:34.7.0"))
 
     // TODO: Add the dependencies for Firebase products you want to use
     // When using the BoM, don't specify versions in Firebase dependencies

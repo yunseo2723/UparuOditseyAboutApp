@@ -82,34 +82,42 @@ class UparuAffinityActivity : AppCompatActivity() {
 
             // 각 속성에 대한 강한 속성과 약한 속성을 맵으로 지정
             val strongProperties = mapOf(
-                "숲" to listOf("불", "얼음"),
-                "땅" to listOf("바람", "매직", "황금"),
-                "불" to listOf("물", "매직"),
-                "물" to listOf("숲", "천둥"),
-                "천둥" to listOf("땅", "바람", "빛"),
-                "바람" to listOf("불", "매직"),
-                "얼음" to listOf("불", "황금"),
-                "매직" to listOf("물", "얼음"),
-                "빛" to listOf("숲", "어둠"),
-                "어둠" to listOf("땅", "빛"),
-                "황금" to listOf("천둥", "어둠")
+                "숲" to listOf("불", "얼음", "강철"),
+                "땅" to listOf("바람", "매직", "숲"),
+                "불" to listOf("물", "매직", "슈가"),
+                "물" to listOf("숲", "천둥", "바람"),
+                "천둥" to listOf("땅", "바람", "얼음"),
+                "바람" to listOf("불", "매직", "강철"),
+                "얼음" to listOf("불", "슈가", "강철"),
+                "매직" to listOf("물", "얼음", "슈가"),
+                "슈가" to listOf("숲", "땅", "천둥"),
+                "강철" to listOf("땅", "물", "천둥"),
+                "빛" to listOf("황금", "무지개"),
+                "어둠" to listOf("빛", "구름"),
+                "황금" to listOf("어둠", "무지개"),
+                "구름" to listOf("빛", "황금"),
+                "무지개" to listOf("어둠", "구름")
             )
 
             val weakProperties = mapOf(
-                "숲" to listOf("물", "빛"),
-                "땅" to listOf("천둥", "어둠"),
+                "숲" to listOf("땅", "물", "슈가"),
+                "땅" to listOf("천둥", "슈가", "강철"),
                 "불" to listOf("숲", "바람", "얼음"),
-                "물" to listOf("불", "매직"),
-                "천둥" to listOf("물", "황금"),
-                "바람" to listOf("땅", "천둥"),
-                "얼음" to listOf("숲", "매직"),
+                "물" to listOf("불", "매직", "강철"),
+                "천둥" to listOf("물", "슈가", "강철"),
+                "바람" to listOf("땅", "물", "천둥"),
+                "얼음" to listOf("숲", "천둥", "매직"),
                 "매직" to listOf("땅", "불", "바람"),
-                "빛" to listOf("천둥", "어둠"),
-                "어둠" to listOf("빛", "황금"),
-                "황금" to listOf("땅", "얼음")
+                "슈가" to listOf("불", "얼음", "매직"),
+                "강철" to listOf("숲", "바람", "얼음"),
+                "빛" to listOf("어둠", "구름"),
+                "어둠" to listOf("황금", "무지개"),
+                "황금" to listOf("빛", "구름"),
+                "구름" to listOf("어둠", "무지개"),
+                "무지개" to listOf("빛", "황금")
             )
             fun getRemainingProperties(selectedProperty: String, weakProperties: Map<String, List<String>>): List<String> {
-                val allProperties = listOf("숲", "땅", "불", "물", "천둥", "바람", "얼음", "매직", "빛", "어둠", "황금")
+                val allProperties = listOf("숲", "땅", "불", "물", "천둥", "바람", "얼음", "매직", "슈가", "강철", "빛", "어둠", "황금", "구름", "무지개")
 
                 val excludedProperties = weakProperties[selectedProperty] ?: emptyList()
                 return allProperties.filterNot { excludedProperties.contains(it) }
