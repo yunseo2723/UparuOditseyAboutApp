@@ -353,7 +353,15 @@ object UparuTypeRepository {
         "에티볼" to Info(R.drawable.etiball, "천둥,슈가,불"),
         "뱃도치" to Info(R.drawable.batdochi, "땅,불,물"),
         "소시지" to Info(R.drawable.sausage, "땅,불,매직"),
-        "루미" to Info(R.drawable.rumi, "얼음,바람,강철")
+        "루미" to Info(R.drawable.rumi, "얼음,바람,강철"),
+        "도리도" to Info(R.drawable.dorido, "땅,천둥"),
+        "용라오" to Info(R.drawable.yongrao, "바람,슈가"),
+        "트리토" to Info(R.drawable.trito, "불,숲,매직"),
+        "폼스키" to Info(R.drawable.pomski, "얼음,불,슈가"),
+        "엔비" to Info(R.drawable.enbi, "강철,물,바람"),
+        "루디고" to Info(R.drawable.rudigo, "얼음,땅,매직"),
+        "별꽃송이" to Info(R.drawable.byulggotsongi, "불,천둥,매직"),
+        "묘월" to Info(R.drawable.myoweol, "숲,얼음,천둥")
     )
     val withStar: Map<String, Info> = normal + mapOf(
         "레이"      to Info(R.drawable.rey, "빛"),
@@ -413,6 +421,11 @@ object UparuTypeRepository {
         "알레브레"    to Info(R.drawable.alebre, "무지개"),
         "해치루"    to Info(R.drawable.hachiru, "구름"),
         "해태루"    to Info(R.drawable.hataru, "구름"),
-        "르네벨"    to Info(R.drawable.rnebel, "구름")
+        "르네벨"    to Info(R.drawable.rnebel, "구름"),
+        "슈미"    to Info(R.drawable.shumi, "빛"),
+        "로비라"    to Info(R.drawable.robira, "빛,땅"),
+        "히르나"    to Info(R.drawable.hirna, "빛,얼음"),
+        "세르"    to Info(R.drawable.ser, "빛,슈가"),
+        "케메트"    to Info(R.drawable.kemet, "어둠,숲")
     )
 }

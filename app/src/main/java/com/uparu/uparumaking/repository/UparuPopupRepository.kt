@@ -317,7 +317,7 @@ object UparuPopupRepository {
         "브릴" to UparuPopup(
             title = "브릴\n조합조건",
             message = "1. 바람 속성을 포함한 5가지 속성 이상 크로스\n\n" +
-                    "2. 2025.11.15 ~ 2025.11.17 기간동안만\n소환 가능"
+                    "2. 2025.12.13 ~ 2025.12.15 기간동안만\n소환 가능"
         ),
         "쫀득이" to UparuPopup(
             title = "쫀득이\n조합조건",
@@ -511,7 +511,7 @@ object UparuPopupRepository {
         ),
         "플로체" to UparuPopup(
             title = "플로체\n조합조건",
-            message = "이벤트 뽑기 전용 우파루입니다.\n\n2025.04.30 이후 획득 불가"
+            message = "이벤트 뽑기 전용 우파루입니다.\n\n2025.12.24 이후 획득 불가"
         ),
         "아루미" to UparuPopup(
             title = "아루미\n조합조건",
@@ -543,7 +543,7 @@ object UparuPopupRepository {
         ),
         "카일" to UparuPopup(
             title = "카일\n조합조건",
-            message = "1. 2025.10.17 ~ 2025.10.18 기간동안만\n소환 가능\n\n" +
+            message = "1. 2025.12.25 ~ 2025.12.27 기간동안만\n소환 가능\n\n" +
                     "2. 물, 바람 속성을 포함한 5가지 속성 이상 크로스"
         ),
         "밤토리" to UparuPopup(
@@ -744,6 +744,47 @@ object UparuPopupRepository {
             title = "루미\n조합조건",
             message = "1. 13차 소환 랭킹 이벤트 \n1000 포인트 달성 보상\n\n" +
                     "2. 2025.11.26 ~ 2025.12.10 기간동안\n이벤트 진행"
+        ),
+        "폼스키" to UparuPopup(
+            title = "폼스키\n조합조건",
+            message = "1. 2025.12.17 ~ 2025.12.31 기간동안만\n소환 가능"
+        ),
+        "엔비" to UparuPopup(
+            title = "엔비\n조합조건",
+            message = "1. 크리스마스 상자 이벤트 보상\n\n" +
+                    "2. 2025.12.24 ~ 2026.01.07 기간동안\n이벤트 진행"
+        ),
+        "루디고" to UparuPopup(
+            title = "루디고\n조합조건",
+            message = "1. 2025.12.24 ~ 2026.01.07 기간동안만\n소환 가능"
+        ),
+        "슈미" to UparuPopup(
+            title = "슈미\n조합조건",
+            message = "1. 땅, 슈가, 얼음 속성을 포함한 4가지 속성 이상 크로스"
+        ),
+        "로비라" to UparuPopup(
+            title = "로비라\n조합조건",
+            message = "1. 20레벨의 슈미를 마법 진화"
+        ),
+        "히르나" to UparuPopup(
+            title = "히르나\n조합조건",
+            message = "1. 20레벨의 슈미를 마법 진화"
+        ),
+        "세르" to UparuPopup(
+            title = "세르\n조합조건",
+            message = "1. 20레벨의 슈미를 마법 진화"
+        ),
+        "케메트" to UparuPopup(
+            title = "케메트\n조합조건",
+            message = "1. 20레벨의 슈미를 마법 진화"
+        ),
+        "별꽃송이" to UparuPopup(
+            title = "별꽃송이\n조합조건",
+            message = "1. 2025.12.31 ~ 2026.01.14 기간동안만\n소환 가능"
+        ),
+        "묘월" to UparuPopup(
+            title = "묘월\n조합조건",
+            message = "1. 2025.12.31 ~ 2026.01.14 기간동안만\n소환 가능"
         )
     )
     fun get(name: String): UparuPopup? = popups[name]

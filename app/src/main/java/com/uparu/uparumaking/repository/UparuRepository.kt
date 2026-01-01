@@ -3661,7 +3661,7 @@ object UparuRepository {
             typeText = "무지개",
             timeDisplay = "43시간30분",
             timeForSort = 43.5,
-            isEvent = true,
+            //isEvent = true, 1/3이후
             isStar = true
         ),
         UparuInfo(
@@ -3673,7 +3673,7 @@ object UparuRepository {
             typeText = "무지개",
             timeDisplay = "44시간30분",
             timeForSort = 44.5,
-            isEvent = true,
+            //isEvent = true, 1/3이후
             isStar = true
         ),
         UparuInfo(
@@ -4424,7 +4424,7 @@ object UparuRepository {
             typeText = "땅,불,매직",
             timeDisplay = "28시간",
             timeForSort = 28.0,
-            //isEvent = true 12/10까지
+            isEvent = true
         ),
         UparuInfo(
             profile = R.drawable.rumi,
@@ -4436,6 +4436,146 @@ object UparuRepository {
             timeDisplay = "28시간",
             timeForSort = 28.0,
             isEvent = true
+        ),
+        UparuInfo(
+            profile = R.drawable.dorido,
+            name = "도리도",
+            gold = 13,
+            typeDrawable = R.drawable.typegrnl,
+            egg = R.drawable.eggdorido,
+            typeText = "땅,천둥",
+            timeDisplay = "8시간30분",
+            timeForSort = 8.5
+        ),
+        UparuInfo(
+            profile = R.drawable.yongrao,
+            name = "용라오",
+            gold = 16,
+            typeDrawable = R.drawable.typewins,
+            egg = R.drawable.eggyongrao,
+            typeText = "바람,슈가",
+            timeDisplay = "13시간20분",
+            timeForSort = 13.33
+        ),
+        UparuInfo(
+            profile = R.drawable.trito,
+            name = "트리토",
+            gold = 19,
+            typeDrawable = R.drawable.typefngnm,
+            egg = R.drawable.eggtrito,
+            typeText = "불,숲,매직",
+            timeDisplay = "20시간30분",
+            timeForSort = 20.5
+        ),
+        UparuInfo(
+            profile = R.drawable.pomski,
+            name = "폼스키",
+            gold = 25,
+            typeDrawable = R.drawable.typeinfns,
+            egg = R.drawable.eggpomski,
+            typeText = "얼음,불,슈가",
+            timeDisplay = "25시간",
+            timeForSort = 25.0,
+            isEvent = true
+        ),
+        UparuInfo(
+            profile = R.drawable.enbi,
+            name = "엔비",
+            gold = 31,
+            typeDrawable = R.drawable.typeirnwanwi,
+            egg = R.drawable.eggenbi,
+            typeText = "강철,물,바람",
+            timeDisplay = "28시간",
+            timeForSort = 28.0,
+            //isEvent = true 1/7 이후
+        ),
+        UparuInfo(
+            profile = R.drawable.rudigo,
+            name = "루디고",
+            gold = 18,
+            typeDrawable = R.drawable.typeingrnm,
+            egg = R.drawable.eggrudigo,
+            typeText = "얼음,땅,매직",
+            timeDisplay = "25시간",
+            timeForSort = 25.0,
+            //isEvent = true 1/7 이후
+        ),
+        UparuInfo(
+            profile = R.drawable.shumi,
+            name = "슈미",
+            gold = 55,
+            typeDrawable = R.drawable.typelight,
+            egg = R.drawable.eggshumi,
+            typeText = "빛",
+            timeDisplay = "40시간15분",
+            timeForSort = 40.25,
+            isStar = true
+        ),
+        UparuInfo(
+            profile = R.drawable.robira,
+            name = "로비라",
+            gold = 30,
+            typeDrawable = R.drawable.typelightngr,
+            egg = R.drawable.eggrobira,
+            typeText = "빛,땅",
+            timeDisplay = "42시간15분",
+            timeForSort = 42.25,
+            isStar = true
+        ),
+        UparuInfo(
+            profile = R.drawable.hirna,
+            name = "히르나",
+            gold = 30,
+            typeDrawable = R.drawable.typelightni,
+            egg = R.drawable.egghirna,
+            typeText = "빛,얼음",
+            timeDisplay = "42시간15분",
+            timeForSort = 42.25,
+            isStar = true
+        ),
+        UparuInfo(
+            profile = R.drawable.ser,
+            name = "세르",
+            gold = 30,
+            typeDrawable = R.drawable.typelightns,
+            egg = R.drawable.eggser,
+            typeText = "빛,슈가",
+            timeDisplay = "42시간15분",
+            timeForSort = 42.25,
+            isStar = true
+        ),
+        UparuInfo(
+            profile = R.drawable.kemet,
+            name = "케메트",
+            gold = 30,
+            typeDrawable = R.drawable.typedarkng,
+            egg = R.drawable.eggkemet,
+            typeText = "어둠,숲",
+            timeDisplay = "36시간15분",
+            timeForSort = 36.25,
+            isStar = true
+        ),
+        UparuInfo(
+            profile = R.drawable.byulggotsongi,
+            name = "별꽃송이",
+            gold = 20,
+            typeDrawable = R.drawable.typefnlnm,
+            egg = R.drawable.eggbyulggotsongi,
+            typeText = "불,천둥,매직",
+            timeDisplay = "28시간",
+            timeForSort = 28.0,
+            //isEvent = true 1/14 이후
+        ),
+        UparuInfo(
+            profile = R.drawable.myoweol,
+            name = "묘월",
+            gold = 19,
+            typeDrawable = R.drawable.typegninl,
+            egg = R.drawable.eggmyoweol,
+            typeText = "숲,얼음,천둥",
+            timeDisplay = "25시간",
+            timeForSort = 25.0,
+            //isEvent = true 1/14 이후
         )
     )
 
