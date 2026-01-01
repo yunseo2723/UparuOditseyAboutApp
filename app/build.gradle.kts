@@ -13,9 +13,9 @@ android {
         applicationId = "com.uparu.uparumaking"
         minSdk = 24
         targetSdk = 36
-        versionCode = 36
-        versionName = "3.0.0"
-
+        versionCode = 37
+        versionName = "3.0.1"
+        //versionCode랑 versionName 모두 수정하기
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 

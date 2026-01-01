@@ -139,6 +139,13 @@ object CombinationEngine {
             results = setOf("ruru", "glori", "gloria")
         ),
 
+        // 슈미
+        BreedRule(
+            minTypes = 4,
+            requireAll = setOf("땅", "슈가", "얼음"),
+            results = setOf("shumi")
+        ),
+
         // 블랙아피스
         BreedRule(
             minTypes = 5,
@@ -217,7 +224,9 @@ object CombinationEngine {
             "바람".takeIf { resulttype.contains("바람") },
             "얼음".takeIf { resulttype.contains("얼음") },
             "천둥".takeIf { resulttype.contains("천둥") },
-            "매직".takeIf { resulttype.contains("매직") }
+            "매직".takeIf { resulttype.contains("매직") },
+            "슈가".takeIf { resulttype.contains("슈가") },
+            "강철".takeIf { resulttype.contains("강철") }
         )
 
         val ctx = BreedContext(
