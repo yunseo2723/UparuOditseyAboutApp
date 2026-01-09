@@ -3661,7 +3661,7 @@ object UparuRepository {
             typeText = "무지개",
             timeDisplay = "43시간30분",
             timeForSort = 43.5,
-            //isEvent = true, 1/3이후
+            isEvent = true,
             isStar = true
         ),
         UparuInfo(
@@ -3673,7 +3673,7 @@ object UparuRepository {
             typeText = "무지개",
             timeDisplay = "44시간30분",
             timeForSort = 44.5,
-            //isEvent = true, 1/3이후
+            isEvent = true,
             isStar = true
         ),
         UparuInfo(
@@ -4487,7 +4487,7 @@ object UparuRepository {
             typeText = "강철,물,바람",
             timeDisplay = "28시간",
             timeForSort = 28.0,
-            //isEvent = true 1/7 이후
+            isEvent = true
         ),
         UparuInfo(
             profile = R.drawable.rudigo,
@@ -4498,7 +4498,7 @@ object UparuRepository {
             typeText = "얼음,땅,매직",
             timeDisplay = "25시간",
             timeForSort = 25.0,
-            //isEvent = true 1/7 이후
+            isEvent = true
         ),
         UparuInfo(
             profile = R.drawable.shumi,
@@ -4576,6 +4576,27 @@ object UparuRepository {
             timeDisplay = "25시간",
             timeForSort = 25.0,
             //isEvent = true 1/14 이후
+        ),
+        UparuInfo(
+            profile = R.drawable.tatangka,
+            name = "타탕카",
+            gold = 8,
+            typeDrawable = R.drawable.typeinir,
+            egg = R.drawable.eggtatangka,
+            typeText = "얼음,강철",
+            timeDisplay = "18시간10분",
+            timeForSort = 18.16
+        ),
+        UparuInfo(
+            profile = R.drawable.dalho,
+            name = "달호",
+            gold = 20,
+            typeDrawable = R.drawable.typegrnlnwi,
+            egg = R.drawable.eggdalho,
+            typeText = "땅,천둥,바람",
+            timeDisplay = "25시간",
+            timeForSort = 25.0,
+            //isEvent = true 1/21 이후
         )
     )
 

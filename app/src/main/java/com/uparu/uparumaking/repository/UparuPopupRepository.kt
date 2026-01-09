@@ -785,6 +785,10 @@ object UparuPopupRepository {
         "묘월" to UparuPopup(
             title = "묘월\n조합조건",
             message = "1. 2025.12.31 ~ 2026.01.14 기간동안만\n소환 가능"
+        ),
+        "묘월" to UparuPopup(
+            title = "묘월\n조합조건",
+            message = "1. 2026.01.07 ~ 2026.01.21 기간동안만\n소환 가능"
         )
     )
     fun get(name: String): UparuPopup? = popups[name]
